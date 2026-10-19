@@ -34,8 +34,8 @@ Le truffe cambiano e WhatsApp sposta i menu. Se un passaggio non corrisponde pi√
 
 ## Licenza
 
-Guide: [Creative Commons Attribuzione 4.0](LICENSE). Libere di essere condivise e riusate, con citazione di ransomNews.
-Codice dei tool: GPL-3.0.
+Guide: [Creative Commons Attribuzione 4.0](LICENSE.md). Libere di essere condivise e riusate, con citazione di ransomNews.
+Codice dei tool: [GPL-3.0](tool/LICENSE).
 
 ## Avvertenza
 
