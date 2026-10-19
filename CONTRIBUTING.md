@@ -19,7 +19,7 @@ Se un passaggio di una guida non corrisponde più a quello che vedi (un menu spo
 
 ## Aggiornare una guida
 
-1. Aggiorna la data "Aggiornato al" nel PDF.
+1. Correggi il sorgente HTML della guida, aggiorna la data "Aggiornato al" e ristampa il PDF con lo script `stampa.sh` nella cartella `sorgente/`.
 2. Aggiungi una riga alla tabella "Versioni" nella pagina della guida.
 3. Aggiorna la data nella tabella del [README](README.md).
 
