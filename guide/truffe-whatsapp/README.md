@@ -2,7 +2,7 @@
 
 Come riconoscerle e, caso per caso, tutti i passaggi per risolvere: recuperare l'account, bloccare i danni, riavere i soldi, denunciare.
 
-**[Scarica il PDF](ransomNews_guida_truffe-whatsapp.pdf)** (25 pagine A4, aggiornato al 15 ottobre 2026)
+**[Scarica il PDF](ransomNews_guida_truffe-whatsapp.pdf)** (21 pagine A4, aggiornato al 15 ottobre 2026)
 
 > **In una riga.** Chi ti chiede soldi o codici via chat va verificato a voce, sul numero che conosci. Se c'è fretta, è quasi sempre una truffa.
 
@@ -49,6 +49,7 @@ Scritta da [ransomNews](https://ransomnews.online) con il consulto tecnico di [F
 |---|---|---|
 | 15 ottobre 2026 | 18 ottobre 2026 | Prima versione nel repo. |
 | 15 ottobre 2026 | 19 ottobre 2026 | Ristampa dallo stesso testo: link cliccabili, segnalibri, PDF leggibile dai lettori di schermo. |
+| 15 ottobre 2026 | 19 ottobre 2026 | Impaginazione corretta: niente più mezze pagine vuote, come quella dopo il titolo della Parte B. |
 
 ## Sorgente
 

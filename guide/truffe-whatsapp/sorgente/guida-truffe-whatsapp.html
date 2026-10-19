@@ -120,10 +120,15 @@ footer .l a{color:#333;text-decoration:none}
 }
 @media print{.top{display:none}.card,.step{break-inside:avoid}}
 
-/* Stampa: A4 alla stessa scala della prima edizione; le altre regole di stampa sono quelle originali */
+/* Stampa: A4 alla stessa scala della prima edizione. Le schede scorrono da una pagina all'altra
+   (la regola originale .card{break-inside:avoid} lasciava mezze pagine vuote, per esempio dopo il titolo della Parte B);
+   non si spezzano i singoli punti, i riquadri piccoli e le intestazioni delle schede. */
 @page{size:A4}
 @media print{
   html{zoom:0.85}
+  .card,.step{break-inside:auto}
+  li,.note,.alert,.signal,.oneline,.quote,.card-h{break-inside:avoid}
+  h2,h3,h4,.kicker,.step-t,.h-sm,.card-h{break-after:avoid}
   footer{break-before:avoid}
 }
 </style>
