@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida truffe WhatsApp · ransomNews</title>
+<meta name="description" content="Come riconoscere le truffe WhatsApp e, caso per caso, tutti i passaggi per risolvere: recuperare l'account, bloccare i danni, riavere i soldi, denunciare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c8202f; --red-soft:#fbeeee; --red-line:#e8a3a9;
+  --blue:#1a6fd8; --green:#0f7a52; --amber-bg:#fdf3e4; --amber:#8a5a00; --amber-line:#e0a24a;
+  --ink:#111; --text:#2b2b33; --muted:#6d6d7a; --line:#d8d8e0; --panel:#f0f0f4; --step:#f4f4f8; --bg:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,sans-serif;font-size:16px;line-height:1.6}
+a{color:var(--red)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.topbar{background:var(--panel)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand b{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.brand b span{color:var(--red)}
+.brand .sep{width:1px;height:26px;background:#c9c9d2}
+.brand svg{width:22px;height:22px;fill:#777}
+.tag{font-size:13px;font-weight:700;color:#888;letter-spacing:.5px}
+.stripe{height:18px;background:linear-gradient(90deg,#a3161f,var(--red));clip-path:polygon(0 0,100% 0,100% 30%,0 100%)}
+
+/* Hero */
+.hero{margin:32px 0 28px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;gap:28px;align-items:center}
+.hero img{width:128px;height:118px;object-fit:contain;background:#fff;border-radius:6px;flex-shrink:0}
+.hero h1{margin:0;font-size:46px;line-height:1.1;font-weight:800;color:var(--ink);letter-spacing:-.5px}
+.hero h1 span{color:var(--red)}
+.hero .collab{margin:8px 0 10px;color:#555;font-size:18px}
+.hero p{margin:0;color:#555;font-size:18px}
+
+/* Boxes */
+.oneline{background:var(--red-soft);border:1px solid var(--red-line);border-radius:12px;padding:20px 24px;margin:0 0 28px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin:0 0 6px}
+.oneline p{margin:0;font-size:20px;font-weight:700;color:var(--ink);line-height:1.45}
+.alert{border:2px solid var(--red);border-radius:12px;padding:20px 24px;margin:0 0 14px}
+.alert p{margin:0}
+.box{border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin:0 0 28px}
+.box h3{margin:0 0 8px;font-size:17px;color:var(--ink)}
+.path{display:inline-block;font-size:.85em;background:#f3f3f6;border:1px solid #d5d5dd;border-radius:6px;padding:1px 8px;color:#333;white-space:normal}
+.code{display:inline-block;font-weight:700;color:var(--green);background:#eef8f3;border:1px solid #cfe9dc;border-radius:6px;padding:1px 9px;font-family:ui-monospace,Menlo,monospace}
+ol,ul{margin:6px 0;padding-left:26px}
+li{margin:3px 0}
+ol li::marker{color:var(--blue);font-weight:700}
+ul li::marker{color:var(--red)}
+
+/* Index */
+.idx-part{font-weight:700;font-size:14px;letter-spacing:.3px;color:var(--ink);margin:16px 0 8px}
+.idx-part a{color:var(--ink);text-decoration:none}
+.idx-part a:hover{color:var(--red)}
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin:0 0 6px}
+.idx-grid a{display:flex;gap:10px;text-decoration:none;color:var(--text);padding:4px 0;border-bottom:1px dashed #e4e4ea}
+.idx-grid a:hover{color:var(--red)}
+.idx-grid a b{color:var(--blue);min-width:22px}
+
+/* Sections */
+.part{font-size:14px;font-weight:700;letter-spacing:.5px;color:var(--red);margin:44px 0 0;padding-bottom:4px;border-bottom:3px solid var(--red);display:inline-block}
+h2{font-size:30px;margin:8px 0 2px;color:var(--ink);line-height:1.25}
+.sub{color:var(--muted);margin:0 0 20px}
+h3.lbl{font-size:16px;margin:24px 0 10px;color:var(--ink)}
+
+.signals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 8px}
+.signal{border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:12px 14px}
+.signal b{display:block;font-size:13px;letter-spacing:1px;color:var(--red)}
+.signal span{font-size:14px}
+
+/* Cards */
+.card{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 20px;scroll-margin-top:16px}
+.card-h{display:flex;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:2px solid #d0d0da;margin-bottom:14px}
+.card-h .n{color:var(--blue);font-weight:700;font-size:15px}
+.card-h h3{margin:0;font-size:20px;color:var(--ink);line-height:1.3;flex:1}
+.card-h .rn{font-size:13px;font-weight:700;color:#555;white-space:nowrap}
+.card-h .rn span{color:#d9626d}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;color:#fff;border-radius:5px;padding:2px 8px;vertical-align:middle;white-space:nowrap}
+.badge.red{background:var(--red)}.badge.blue{background:var(--blue)}.badge.green{background:var(--green)}
+.h-sm{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--muted);margin:14px 0 4px}
+.h-sm.green{color:var(--green)}
+.card p{margin:0 0 8px}
+.step{background:var(--step);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+.step-t{font-weight:700;color:var(--ink);margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.note{background:var(--amber-bg);border-left:4px solid var(--amber-line);color:var(--amber);padding:12px 14px;border-radius:4px;margin:12px 0}
+.note b{color:#111}
+.quote{border:1px dashed #c8c8d2;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:15px}
+.src{font-size:13px;color:var(--muted);border-top:1px solid #e4e4ea;padding-top:10px;margin-top:14px}
+em{color:#555}
+
+/* Part C / D */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
+.grid2 .box{margin:0}
+.box h4{margin:0 0 6px;font-size:16px;color:var(--ink)}
+
+footer{border-top:1px solid var(--line);margin:28px 0 40px;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--muted)}
+footer .l span{margin:0 8px;color:#ccc}
+footer .l a{color:#333;text-decoration:none}
+
+.top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+@media (max-width:700px){
+  .hero{flex-direction:column;text-align:center;padding:22px}
+  .hero h1{font-size:34px}
+  .hero .collab,.hero p{font-size:16px}
+  .idx-grid,.grid2{grid-template-columns:1fr}
+  .signals{grid-template-columns:1fr 1fr}
+  .card{padding:16px}
+  .card-h{flex-wrap:wrap}
+  .card-h .rn{display:none}
+  h2{font-size:24px}
+  .tag{font-size:11px}
+  .brand b{font-size:22px}
+}
+@media print{.top{display:none}.card,.step{break-inside:avoid}}
+
+/* Stampa: A4 alla stessa scala della prima edizione; le altre regole di stampa sono quelle originali */
+@page{size:A4}
+@media print{
+  html{zoom:0.85}
+  footer{break-before:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="https://ransomnews.online">
+      <b>ransom<span>News</span></b><i class="sep"></i>
+      <svg viewBox="0 0 24 24" aria-label="Home"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
+    </a>
+    <div class="tag">GUIDA · OTTOBRE 2026</div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<main class="wrap" id="top">
+
+<section class="hero">
+  <img src="data:image/jpeg;base64,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" alt="Logo ransomNews">
+  <div>
+    <h1>GUIDA TRUFFE <span>WHATSAPP</span></h1>
+    <div class="collab">In collaborazione con <a href="https://forenser.it" target="_blank" rel="noopener">Forenser S.r.l.</a> - Torino (TO)</div>
+    <p>Come riconoscerle e, caso per caso, tutti i passaggi per risolvere: recuperare l'account, bloccare i danni, riavere i soldi, denunciare.</p>
+  </div>
+</section>
+
+<div class="oneline">
+  <div class="kicker">In una riga</div>
+  <p>Chi ti chiede soldi o codici via chat va verificato a voce, sul numero che conosci. Se c'è fretta, è quasi sempre una truffa.</p>
+</div>
+
+<div class="alert">
+  <div class="kicker">Attenzione · Hai un iPhone?</div>
+  <p>Su iPhone <b>non aggiornati</b> l'account WhatsApp può essere clonato <b>senza che tu faccia nulla</b>: niente link, niente codici. Controlla subito di avere l'ultima versione di iOS (<span class="path">Impostazioni → Generali → Aggiornamento software</span>) e di WhatsApp, e leggi la scheda <a href="#s01"><b>#01</b></a>.</p>
+</div>
+
+<div class="box">
+  <h3>Come usare questa guida</h3>
+  <ol>
+    <li>Trova il tuo caso nell'indice qui sotto.</li>
+    <li>Segui i passaggi <b>nell'ordine</b> in cui sono scritti: i primi sono quelli che fermano il danno.</li>
+    <li>Se hai già pagato o dato dati, dopo il tuo caso vai alla <a href="#parte-c"><b>Parte C</b></a>.</li>
+    <li>Alla fine, denuncia e segnala con i contatti della <a href="#parte-d"><b>Parte D</b></a>.</li>
+  </ol>
+</div>
+
+<!-- INDICE -->
+<section class="box" aria-label="Indice">
+  <h3>Indice</h3>
+  <div class="idx-part"><a href="#parte-a">PARTE A — REGOLE VALIDE PER TUTTE LE TRUFFE</a></div>
+  <div class="idx-part"><a href="#parte-b">PARTE B — LE TRUFFE UNA PER UNA, CON LA SOLUZIONE</a></div>
+  <div class="idx-grid">
+    <a href="#s01"><b>01</b>Account clonato senza fare nulla (iPhone non aggiornati)</a>
+    <a href="#s02"><b>02</b>Account rubato o "truffa della ballerina"</a>
+    <a href="#s03"><b>03</b>Telefono perso/rubato o SIM clonata</a>
+    <a href="#s04"><b>04</b>Soldi chiesti da un contatto in rubrica</a>
+    <a href="#s05"><b>05</b>"Ciao mamma, ho cambiato numero"</a>
+    <a href="#s06"><b>06</b>Voce clonata con l'IA</a>
+    <a href="#s07"><b>07</b>Link di phishing</a>
+    <a href="#s08"><b>08</b>Finto operatore della banca</a>
+    <a href="#s09"><b>09</b>Finto supporto WhatsApp e app modificate</a>
+    <a href="#s10"><b>10</b>Condivisione schermo e controllo remoto</a>
+    <a href="#s11"><b>11</b>Finte offerte di lavoro</a>
+    <a href="#s12"><b>12</b>Investimenti, trading e cripto</a>
+    <a href="#s13"><b>13</b>Truffe sentimentali</a>
+    <a href="#s14"><b>14</b>Sextortion e immagini intime</a>
+    <a href="#s15"><b>15</b>Compravendite online</a>
+    <a href="#s16"><b>16</b>Affitti e case vacanza inesistenti</a>
+    <a href="#s17"><b>17</b>Premi, concorsi e buoni falsi</a>
+    <a href="#s18"><b>18</b>Chiamate da prefissi esteri</a>
+    <a href="#s19"><b>19</b>Allegati e app infette</a>
+    <a href="#s20"><b>20</b>Finto recupero dei soldi persi</a>
+    <a href="#s21"><b>21</b>False convocazioni di polizia ed enti</a>
+    <a href="#s22"><b>22</b>Finti prestiti e finanziamenti</a>
+    <a href="#s23"><b>23</b>Finte raccolte fondi e biglietti falsi</a>
+  </div>
+  <div class="idx-part"><a href="#parte-c">PARTE C — HO GIÀ PAGATO O DATO DATI: COSA FARE</a></div>
+  <div class="idx-part"><a href="#parte-d">PARTE D — DENUNCE, SEGNALAZIONI E CONTATTI UTILI</a></div>
+</section>
+
+<!-- PARTE A -->
+<div class="part" id="parte-a">PARTE A</div>
+<h2>Regole valide per tutte le truffe</h2>
+<h3 class="lbl">I campanelli d'allarme ricorrenti</h3>
+<div class="signals">
+  <div class="signal"><b>URGENZA</b><span>"Subito", "entro oggi", "altrimenti blocchiamo il conto".</span></div>
+  <div class="signal"><b>SOLDI</b><span>Qualunque richiesta di pagamento, bonifico, ricarica.</span></div>
+  <div class="signal"><b>CODICI</b><span>Richiesta di un codice SMS, PIN, OTP, password.</span></div>
+  <div class="signal"><b>CANALE DIVERSO</b><span>"Non chiamarmi", "spostiamoci su Telegram", "clicca questo link".</span></div>
+  <div class="signal"><b>SEGRETEZZA</b><span>"Non dirlo a nessuno", "è una sorpresa".</span></div>
+  <div class="signal"><b>TROPPO BELLO</b><span>Guadagni facili, premi, prezzi stracciati.</span></div>
+</div>
+
+<h3 class="lbl">Le 8 regole d'oro</h3>
+<ol>
+  <li>Il codice a 6 cifre di WhatsApp e i codici SMS della banca non si danno mai a nessuno, nemmeno ad amici o parenti. Nessuno ha motivo di chiederli.</li>
+  <li>Se qualcuno chiede soldi via chat, chiamalo a voce sul numero che conosci già, non sul numero che ti scrive.</li>
+  <li>Non cliccare link ricevuti via chat per pagare, accedere, verificare, "sbloccare" o "votare".</li>
+  <li>Banche, Poste, forze dell'ordine e WhatsApp non ti chiedono mai di spostare soldi, installare app o dare codici.</li>
+  <li>Non installare app suggerite da sconosciuti e non condividere lo schermo con nessuno.</li>
+  <li>Non digitare sul telefono codici con * e # suggeriti da altri.</li>
+  <li>Attiva la verifica in due passaggi con un'email di recupero: <span class="path">Impostazioni → Account → Verifica in due passaggi</span></li>
+  <li>Nel dubbio, fermati. Una truffa vive di fretta: aspettare un'ora non fa danni, pagare sì.</li>
+</ol>
+
+<h3 class="lbl">Proteggi ora il tuo WhatsApp (5 minuti)</h3>
+<ol>
+  <li><span class="path">Impostazioni → Account → Verifica in due passaggi → Attiva</span>: scegli un PIN di 6 cifre che non usi altrove e inserisci un'email di recupero a cui hai accesso.</li>
+  <li><span class="path">Impostazioni → Privacy → Chiamate → Silenzia chiamate da numeri sconosciuti</span></li>
+  <li><span class="path">Impostazioni → Privacy → Gruppi → I miei contatti</span>: gli sconosciuti non possono aggiungerti ai gruppi.</li>
+  <li><span class="path">Impostazioni → Privacy</span>: Immagine profilo, Info e Ultimo accesso su "I miei contatti".</li>
+  <li><span class="path">Impostazioni → Chat → Backup delle chat</span>: attiva il backup su Google Drive o iCloud, così in caso di problemi recuperi le conversazioni.</li>
+  <li>Controlla ogni tanto <span class="path">Impostazioni → Dispositivi collegati</span> e scollega quello che non riconosci.</li>
+  <li>Salva in rubrica il numero antifrode della tua banca (lo trovi sul retro della carta o sul sito ufficiale).</li>
+</ol>
+
+<!-- PARTE B -->
+<div class="part" id="parte-b">PARTE B</div>
+<h2>Le truffe una per una, con la soluzione</h2>
+<p class="sub">Per ogni caso: come riconoscerlo e tutti i passaggi per risolverlo, nell'ordine giusto.</p>
+
+<!-- 01 -->
+<article class="card" id="s01">
+  <div class="card-h"><span class="n">#01</span><span class="badge red">IL PIÙ GRAVE</span><h3>Account clonato senza che tu abbia fatto nulla (iPhone non aggiornati)</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>È l'attacco più pericoloso in circolazione perché <b>non richiede nessuna azione</b>: non devi cliccare link, dare codici, scansionare QR code o aprire file. I truffatori sfruttano falle di sicurezza di iPhone e WhatsApp non aggiornati, prendono la sessione del tuo WhatsApp, leggono le chat recenti e scrivono ai tuoi contatti chiedendo bonifici, spesso con IBAN.</p>
+  <ul>
+    <li><b>Chi è a rischio:</b> chi ha un iPhone con il sistema operativo non aggiornato. I casi italiani, iniziati a maggio 2026, riguardano soprattutto iPhone rimasti su <b>iOS 16</b>.</li>
+    <li><b>Le falle usate:</b> una di WhatsApp (CVE-2025-55177, corretta dalla versione 2.25.21.73) e una di Apple sull'elaborazione delle immagini (CVE-2025-43300, corretta su iOS 16 dalla 16.7.12).</li>
+    <li>Secondo l'analisi di Forenser, la tecnica è riconducibile anche all'exploit kit <b>Coruna</b>, che colpisce iPhone con iOS dalla 13.0 alla 17.2.1 quando si apre con Safari un sito compromesso o falso.</li>
+  </ul>
+  <div class="note"><b>Attenzione:</b> in questo attacco il dispositivo dei truffatori <b>può non comparire</b> in <span class="path">Dispositivi collegati</span>, e i messaggi inviati a tuo nome possono comparire nella tua chat come "Tu" oppure essere cancellati, così non li vedi. Quindi il controllo dei dispositivi collegati, che serve negli altri casi, qui <b>non basta</b>.</div>
+  <div class="h-sm green">COME ACCORGERSENE</div>
+  <ul>
+    <li>I contatti ti dicono di aver ricevuto da te richieste urgenti di soldi che non hai mai mandato.</li>
+    <li>Nelle tue chat trovi messaggi segnati come "Tu" che non hai scritto.</li>
+    <li>Hai un iPhone che non aggiorni da tempo, e in <span class="path">Dispositivi collegati</span> non risulta nulla di strano.</li>
+  </ul>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Avvisa subito i contatti</div>
+    <ol>
+      <li>Avvisa tutti, meglio con un canale diverso da WhatsApp (telefonata, SMS, social), di <b>non rispondere</b> a richieste di soldi arrivate dal tuo numero:
+        <div class="quote">Il mio WhatsApp è stato clonato. Non ho chiesto soldi a nessuno. Non pagate e non rispondete a richieste di denaro a mio nome. Se avete dubbi, chiamatemi.</div></li>
+      <li>Se qualcuno ha già pagato, digli di chiamare subito la sua banca (<a href="#parte-c">Parte C</a>).</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Conserva le prove prima di toccare il telefono</div>
+    <ol>
+      <li>Non reinstallare WhatsApp e non ripristinare l'iPhone finché non hai conservato le prove: dopo, molte tracce dell'attacco vanno perse.</li>
+      <li>Fai screenshot dei messaggi "Tu" che non hai scritto e chiedi ai contatti gli screenshot dei messaggi ricevuti, con data, ora e IBAN.</li>
+      <li>Se ti servono prove tecniche (per una denuncia, una causa, il rimborso di chi ha pagato), porta l'iPhone a un professionista di analisi forense prima di qualsiasi altro intervento.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Denuncia</div>
+    <ol>
+      <li>Denuncia alla Polizia Postale (<a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a>) o in questura, allegando screenshot e IBAN indicati nei messaggi.</li>
+      <li>Indica modello di iPhone e versione di iOS: le trovi in <span class="path">Impostazioni → Generali → Info</span>.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 4</span>Ripulisci l'iPhone</div>
+    <ol>
+      <li>Dopo aver conservato le prove, fai il ripristino ai dati di fabbrica: <span class="path">Impostazioni → Generali → Trasferisci o inizializza iPhone → Inizializza contenuto e impostazioni</span>.</li>
+      <li>Aggiorna iOS all'ultima versione disponibile: <span class="path">Impostazioni → Generali → Aggiornamento software</span>. Sui modelli fermi a iOS 16 l'ultima patch è la 16.7.16.</li>
+      <li>Reinstalla WhatsApp nell'ultima versione dall'App Store.</li>
+    </ol>
+    <div class="note">Aggiornare iOS o WhatsApp da solo non basta se l'account è già stato clonato: l'aggiornamento non elimina la sessione già rubata e non garantisce che il telefono sia pulito.</div></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 5</span>Riprendi l'account e rinnova l'accesso</div>
+    <ol>
+      <li>Registra di nuovo WhatsApp con il tuo numero e il codice SMS: la reinstallazione disconnette la sessione clonata.</li>
+      <li>Attiva o rinnova la verifica in due passaggi con un PIN nuovo e un'email di recupero: <span class="path">Impostazioni → Account → Verifica in due passaggi</span>.</li>
+      <li>Controlla <span class="path">Dispositivi collegati</span> e scollega quello che non riconosci.</li>
+      <li>Se dopo questi passaggi i contatti ricevono ancora messaggi che non hai scritto, rivolgiti a un professionista di analisi forense.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge green">PREVENZIONE</span>Come non farti clonare l'account</div>
+    <ol>
+      <li><b>Aggiorna iOS</b> all'ultima versione disponibile per il tuo iPhone e tieni attivi gli aggiornamenti automatici.</li>
+      <li><b>Aggiorna WhatsApp</b> dall'App Store.</li>
+      <li>Se il tuo iPhone non si aggiorna più oltre iOS 16, valuta di <b>sostituirlo</b>: resterà esposto anche alle falle future.</li>
+      <li>Attiva la verifica in due passaggi e controlla ogni tanto <span class="path">Dispositivi collegati</span>.</li>
+      <li>Se sei una persona particolarmente esposta, valuta la <b>Modalità di isolamento</b> di Apple (<span class="path">Impostazioni → Privacy e sicurezza → Modalità di isolamento</span>) o le impostazioni restrittive dell'account WhatsApp: limitano alcune funzioni, ma riducono il rischio.</li>
+      <li>Verifica sempre a voce, sul numero che conosci, qualsiasi richiesta di soldi.</li>
+    </ol></div>
+  <div class="src">Fonte: analisi del laboratorio di informatica forense Forenser (<a href="https://forenser.it" target="_blank" rel="noopener">forenser.it</a>), che ha replicato l'attacco e lo ha segnalato a Meta.</div>
+</article>
+
+<!-- 02 -->
+<article class="card" id="s02">
+  <div class="card-h"><span class="n">#02</span><h3>Account WhatsApp rubato o collegato di nascosto ("truffa della ballerina"): recupero completo</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Il truffatore ottiene il tuo codice di verifica e con quello registra il tuo numero sul suo telefono (tu vieni disconnesso) oppure collega di nascosto un suo dispositivo al tuo account (tu non ti accorgi di nulla). Poi scrive ai tuoi contatti chiedendo soldi (es. <em>"Ho comprato un po' di cose online, la carta ha superato il limite, mi anticipi 1.520 euro? Domani te li ridò"</em>). Le esche più comuni:</p>
+  <ul>
+    <li><em>"Scusa, ti ho mandato un codice per sbaglio, me lo giri?"</em></li>
+    <li><b>"Truffa della ballerina"</b>: un contatto ti chiede di votare la figlia di un'amica a un concorso di danza o per una borsa di studio, con foto e link. La pagina chiede il tuo numero e il codice che ricevi. Quel codice collega il tuo WhatsApp a un dispositivo dei truffatori (<em>ghost pairing</em>): <b>il tuo WhatsApp continua a funzionare</b>, quindi non te ne accorgi, mentre loro leggono le chat e scrivono ai tuoi contatti a tuo nome.</li>
+    <li>Una pagina che chiede di inserire numero e codice.</li>
+    <li>Una telefonata che ti fa digitare <span class="code">*21*numero#</span>: è una deviazione di chiamata, e così il truffatore riceve la chiamata vocale con il codice.</li>
+    <li>Qualcuno usa un attimo il tuo telefono e collega WhatsApp Web al suo computer (scansiona il QR code).</li>
+  </ul>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Capisci in che situazione sei</div>
+    <ul>
+      <li>WhatsApp sul tuo telefono funziona ancora, ma i contatti ricevono messaggi che non hai scritto → qualcuno usa un dispositivo collegato (è il caso tipico della "truffa della ballerina"). Vai al Passo 2.</li>
+      <li>WhatsApp ti ha disconnesso (es. avviso che il numero è registrato su un altro telefono, o ti chiede di verificare di nuovo il numero) → l'account è stato rubato. Vai al Passo 3.</li>
+      <li>Il telefono non ha più linea (nessun segnale, "solo emergenza") → potrebbe essere una SIM clonata. Vai alla scheda <a href="#s03">#03</a>.</li>
+      <li>Non hai dato codici, non hai cliccato nulla e hai un iPhone non aggiornato → potrebbe essere l'attacco senza clic. Vai alla scheda <a href="#s01">#01</a>.</li>
+    </ul></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Hai ancora accesso: scollega l'intruso</div>
+    <ol>
+      <li>Apri <span class="path">Impostazioni → Dispositivi collegati</span>.</li>
+      <li>Tocca ogni dispositivo che non riconosci e scegli Disconnetti (o Esci). Nel dubbio, disconnettili tutti: potrai ricollegare i tuoi in seguito.</li>
+      <li>Se hai inserito un codice su un sito per "votare", fai questo controllo anche se WhatsApp sembra normale.</li>
+      <li>Se in <span class="path">Dispositivi collegati</span> non trovi nulla ma i contatti continuano a ricevere messaggi a tuo nome, segui la scheda <a href="#s01">#01</a>: in quell'attacco l'intruso può non comparire nell'elenco.</li>
+      <li>Attiva la verifica in due passaggi: <span class="path">Impostazioni → Account → Verifica in due passaggi → Attiva</span>, PIN di 6 cifre + email di recupero.</li>
+      <li>Controlla che nome, foto e info del profilo non siano stati cambiati, e che non siano stati creati o abbandonati gruppi a tuo nome.</li>
+      <li>Prosegui dal Passo 6.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Sei stato buttato fuori: riprendi l'account</div>
+    <ol>
+      <li>Apri WhatsApp sul tuo telefono (se non si apre, disinstallalo e reinstallalo da App Store o Google Play).</li>
+      <li>Inserisci il tuo numero di telefono e richiedi il codice di verifica.</li>
+      <li>Inserisci il codice a 6 cifre che ricevi via SMS o chiamata: chi sta usando il tuo account viene disconnesso automaticamente.</li>
+      <li>Se WhatsApp ti chiede il PIN della verifica in due passaggi e lo conosci, inseriscilo. Se non lo conosci, vai al Passo 4.</li>
+      <li>Se il codice non arriva, vai al Passo 5.</li>
+      <li>Appena rientrato, attiva o cambia subito la verifica in due passaggi (PIN nuovo + email di recupero) e controlla <span class="path">Dispositivi collegati</span>. Poi prosegui dal Passo 6.</li>
+    </ol>
+    <div class="note">Le chat sono salvate sul tuo telefono e protette dalla crittografia end-to-end: chi ha preso l'account da un altro dispositivo non può leggere le tue conversazioni precedenti. Se avevi il backup su Google Drive o iCloud, potrai ripristinarle.</div></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 4</span>WhatsApp chiede un PIN che non conosci</div>
+    <ol>
+      <li>Probabilmente il truffatore ha attivato la verifica in due passaggi con un suo PIN.</li>
+      <li>Tocca <b>PIN dimenticato?</b>: se l'email di recupero è la tua, ricevi un link per disattivare la verifica in due passaggi e rientri subito. Se l'ha impostata il truffatore, l'email non ti arriverà e devi seguire il punto successivo.</li>
+      <li>Devi aspettare <b>7 giorni</b> dall'ultimo utilizzo dell'account. Allo scadere, tocca <b>PIN dimenticato? → Ripristina</b> e verifica di nuovo il numero con il codice SMS: rientrerai senza PIN, ma i messaggi in attesa verranno cancellati.</li>
+      <li><b>Nel frattempo il truffatore non può più usare l'account</b>: quando hai inserito il codice SMS è stato disconnesso, e senza il tuo telefono non può ricevere un nuovo codice.</li>
+      <li>Non lasciar passare troppo tempo: dopo <b>30 giorni</b> senza rientrare, alla verifica l'account viene eliminato e ne viene creato uno nuovo.</li>
+      <li>Usa questi 7 giorni per avvisare i contatti (Passo 6) e denunciare (Passo 7).</li>
+    </ol>
+    <div class="note">Se ricevi un'email per disattivare la verifica in due passaggi che non hai chiesto tu, non cliccare il link.</div></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 5</span>Il codice di verifica non arriva</div>
+    <ol>
+      <li>Controlla se è attiva una deviazione di chiamata: apri il tastierino, digita <span class="code">*#21#</span> e premi chiama. Se compare un numero che non conosci, le tue chiamate sono deviate.</li>
+      <li>Disattiva <b>tutte</b> le deviazioni: digita <span class="code">##002#</span> e premi chiama. Attendi il messaggio di conferma.</li>
+      <li>Torna su WhatsApp e richiedi di nuovo il codice (SMS o chiamata). Se compare un conto alla rovescia, aspetta che finisca: è normale dopo più tentativi.</li>
+      <li>Se il telefono non ha linea o non riceve SMS e chiamate, chiama il tuo operatore da un altro telefono: potrebbe trattarsi di una SIM clonata (scheda <a href="#s03"><b>#03</b></a>).</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 6</span>Avvisa subito i contatti</div>
+    <ol>
+      <li>Pubblica uno stato WhatsApp (appena rientri) e un post sui tuoi social, ad esempio:
+        <div class="quote">Il mio WhatsApp è stato rubato. Non ho chiesto soldi a nessuno. Non pagate e non rispondete a richieste di denaro a mio nome. Se avete dubbi, chiamatemi.</div></li>
+      <li>Scrivi direttamente (o chiama) chi ha ricevuto i messaggi, soprattutto familiari, amici stretti e i gruppi di cui fai parte.</li>
+      <li>Chiedi a chi ha ricevuto richieste di soldi di <b>fare screenshot</b> e mandarteli: ti servono per la denuncia.</li>
+      <li>Se qualcuno ha già pagato, digli di chiamare subito la sua banca (<a href="#parte-c">Parte C</a>).</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 7</span>Segnala e denuncia</div>
+    <ol>
+      <li>A WhatsApp: <span class="path">Impostazioni → Aiuto → Contattaci</span> (oppure <a href="https://www.whatsapp.com/contact" target="_blank" rel="noopener">whatsapp.com/contact</a>), descrivendo il furto dell'account.</li>
+      <li>Alla Polizia Postale: segnalazione online su <a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a> oppure denuncia in questura o dai carabinieri.</li>
+      <li>Allega gli screenshot dei messaggi inviati dal truffatore, data e ora del furto, e i numeri o IBAN su cui chiedeva i soldi.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 8</span>Metti in sicurezza tutto il resto</div>
+    <ol>
+      <li>Se hai usato lo stesso codice o la stessa password altrove, cambiali.</li>
+      <li>Controlla email, banca e gli altri servizi che usano gli SMS per l'accesso: cambia le password e attiva la verifica in due passaggi.</li>
+      <li>Se l'account risulta bloccato (es. per lo spam inviato dal truffatore), usa nell'app il pulsante per richiedere la revisione e spiega che l'account era stato rubato.</li>
+      <li>Ripristina le chat dal backup, se ti servono.</li>
+    </ol></div>
+  <div class="note">WhatsApp non può localizzare il telefono, non può dirti chi ha avuto accesso al tuo account né da dove, e non disattiva l'account al posto tuo se non riesce a verificare che il numero è tuo. Il recupero passa sempre dal codice SMS sul tuo numero.</div>
+</article>
+
+<!-- 03 -->
+<article class="card" id="s03">
+  <div class="card-h"><span class="n">#03</span><h3>Telefono perso o rubato, SIM clonata (SIM swap)</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Il telefono viene perso o rubato, oppure il truffatore si fa intestare un duplicato della tua SIM (SIM swap): da un momento all'altro il tuo telefono resta senza linea, mentre lui riceve SMS e codici al tuo posto, compresi quelli di WhatsApp e della banca.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Blocca la SIM</div>
+    <ol>
+      <li>Da un altro telefono, chiama subito il tuo operatore e fai <b>bloccare la SIM</b>.</li>
+      <li>Se il telefono funziona ma all'improvviso non ha più linea, chiedi all'operatore se è stato emesso un duplicato della SIM a tua insaputa.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Proteggi soldi e account</div>
+    <ol>
+      <li>Chiama la banca: segnala il rischio, fai bloccare carte e accessi all'home banking e controlla i movimenti.</li>
+      <li>Dal computer o da un altro dispositivo cambia la password dell'email principale, poi quelle degli altri servizi importanti.</li>
+      <li>Se il telefono è perso o rubato, usa la funzione di localizzazione e blocco del telefono (Trova il mio dispositivo di Google o Dov'è di Apple) e, se serve, cancellalo a distanza.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Recupera il numero e WhatsApp</div>
+    <ol>
+      <li>Vai dall'operatore con un documento e richiedi una <b>nuova SIM con lo stesso numero</b>.</li>
+      <li>Inserisci la SIM nel nuovo telefono, installa WhatsApp e verifica il numero con il codice: il telefono perso o rubato viene <b>disconnesso automaticamente</b> (WhatsApp funziona su un solo telefono per numero).</li>
+      <li>Ripristina le chat dal backup e attiva la verifica in due passaggi.</li>
+      <li>Finché non hai la nuova SIM, puoi chiedere aiuto a WhatsApp da <a href="https://www.whatsapp.com/contact" target="_blank" rel="noopener">whatsapp.com/contact</a>. Ricorda che il telefono rubato può usare WhatsApp sul Wi-Fi anche con la SIM bloccata: recuperare il numero è la via più rapida per chiuderlo fuori.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 4</span>Denuncia</div>
+    <ol>
+      <li>Furto del telefono o SIM swap: denuncia in questura o dai carabinieri (serve anche per operatore e banca).</li>
+      <li>Telefono smarrito: la segnalazione di smarrimento si può fare online su <a href="https://denunceonline.poliziadistato.it" target="_blank" rel="noopener"><b>denunceonline.poliziadistato.it</b></a>.</li>
+      <li>Avvisa i contatti come nel Passo 6 della scheda <a href="#s02">#02</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 04 -->
+<article class="card" id="s04">
+  <div class="card-h"><span class="n">#04</span><h3>Richiesta di soldi da un contatto in rubrica</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Ricevi un messaggio da un amico o parente salvato in rubrica: <em>"Ho problemi con la carta, mi anticipi 1.520 euro? Domani te li ridò"</em>, <em>"Devo pagare il notaio"</em>, <em>"Fammi una ricarica"</em>. Una variante del 2026 allega un falso preventivo di un centro dentistico con l'IBAN di un privato. Quasi sempre l'account del tuo contatto è stato rubato (scheda <a href="#s02">#02</a>).</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">NON HAI ANCORA PAGATO</span></div>
+    <ol>
+      <li>Non pagare e non rispondere con dati personali o codici.</li>
+      <li>Chiama la persona <b>a voce</b>, con una normale telefonata (non una chiamata WhatsApp, che arriverebbe al truffatore).</li>
+      <li>Se non risponde, contatta qualcuno che le sta vicino.</li>
+      <li>Se è una truffa: fai screenshot della chat, avvisa la persona con un altro canale (telefonata, SMS, altro social) e mandale la scheda <a href="#s02">#02</a>.</li>
+      <li>Segnala il messaggio: tieni premuto il messaggio → <b>Segnala</b>.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">HAI GIÀ PAGATO</span></div>
+    <ol>
+      <li>Chiama <b>subito</b> la tua banca o l'emittente della carta e chiedi di bloccare o richiamare il pagamento (<a href="#parte-c">Parte C</a>).</li>
+      <li>Fai denuncia indicando IBAN, numero della carta prepagata o altri estremi su cui hai pagato, e allega gli screenshot.</li>
+      <li>Avvisa la persona di cui è stato rubato l'account: anche lei deve denunciare.</li>
+    </ol></div>
+</article>
+
+<!-- 05 -->
+<article class="card" id="s05">
+  <div class="card-h"><span class="n">#05</span><h3>"Ciao mamma, ho cambiato numero"</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Un messaggio da un numero <b>sconosciuto</b>: <em>"Ciao mamma/papà, mi si è rotto il telefono, questo è il mio nuovo numero"</em>. Dopo qualche messaggio arriva la richiesta di pagare una bolletta, una fattura o un bonifico urgente. Spesso il truffatore dice di non poter chiamare o parlare.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">NON HAI ANCORA PAGATO</span></div>
+    <ol>
+      <li>Chiama il <b>vecchio</b> numero del figlio o parente, oppure qualcuno che è con lui.</li>
+      <li>Fai una domanda che solo lui può sapere.</li>
+      <li>Non salvare il nuovo numero in rubrica finché non hai verificato.</li>
+      <li>Fai screenshot della chat, poi <b>blocca e segnala</b> il numero (apri la chat → nome in alto → Blocca / Segnala).</li>
+      <li>Avvisa gli altri familiari: spesso il truffatore scrive a più persone della stessa famiglia.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">HAI GIÀ PAGATO</span></div>
+    <ol>
+      <li>Chiama subito la banca e chiedi il richiamo del bonifico o il blocco del pagamento (<a href="#parte-c">Parte C</a>).</li>
+      <li>Denuncia, con screenshot, numero di telefono del truffatore e IBAN del beneficiario.</li>
+    </ol></div>
+</article>
+
+<!-- 06 -->
+<article class="card" id="s06">
+  <div class="card-h"><span class="n">#06</span><h3>Voce clonata con intelligenza artificiale</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Un vocale o una chiamata con la voce quasi identica a quella di un familiare, che chiede soldi per un'emergenza: incidente, arresto, ospedale. Bastano pochi secondi di audio presi da video o vocali per clonare una voce. Il nome che compare può essere quello giusto, se l'account è stato rubato.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">NON HAI ANCORA PAGATO</span></div>
+    <ol>
+      <li>Non decidere durante la chiamata. Riattacca.</li>
+      <li>Richiama <b>tu</b> la persona sul suo numero abituale, con una normale telefonata, oppure chiama qualcuno che è con lei.</li>
+      <li>Ricorda: polizia, avvocati e ospedali non chiedono soldi al telefono o via WhatsApp.</li>
+      <li>Concorda in famiglia una "parola d'ordine" da chiedere nelle emergenze vere.</li>
+      <li>Salva il vocale o fai screenshot, poi blocca e segnala.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">HAI GIÀ PAGATO O CONSEGNATO SOLDI</span></div>
+    <ol>
+      <li>Chiama subito la banca (<a href="#parte-c">Parte C</a>). Se hai consegnato contanti o gioielli a qualcuno venuto a casa, chiama il <b>112</b>.</li>
+      <li>Denuncia, portando il vocale o il numero da cui è arrivata la chiamata.</li>
+    </ol></div>
+</article>
+
+<!-- 07 -->
+<article class="card" id="s07">
+  <div class="card-h"><span class="n">#07</span><h3>Link di phishing (corrieri, pedaggi, multe, Poste, banche)</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><em>"Il tuo pacco è in giacenza"</em>, <em>"Pedaggio autostradale non pagato"</em>, <em>"Multa da saldare"</em>, <em>"Il tuo conto è stato bloccato"</em>. Il link porta a un sito falso che imita quello vero e chiede credenziali, dati della carta, codici o documenti.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">NON HAI CLICCATO O NON HAI INSERITO NULLA</span></div>
+    <ol>
+      <li>Non cliccare. Per controllare, apri tu il sito o l'app ufficiale <b>scrivendo l'indirizzo a mano</b> nel browser.</li>
+      <li>Se hai cliccato senza inserire nulla: chiudi la pagina e non scaricare file.</li>
+      <li>Blocca e segnala il mittente.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">HAI INSERITO DATI: AGISCI IN BASE A COSA HAI DATO</span></div>
+    <ul>
+      <li><b>Dati della carta</b> → blocca subito la carta (app della banca o numero sul retro), controlla i movimenti, disconosci le operazioni che non hai fatto (<a href="#parte-c">Parte C</a>).</li>
+      <li><b>Credenziali o codici della banca</b> → chiama subito la banca, fai bloccare l'accesso all'home banking e cambia le credenziali da un dispositivo sicuro.</li>
+      <li><b>Password di email o social</b> → cambia subito la password (e ovunque l'hai riusata), disconnetti tutte le sessioni attive, attiva la verifica in due passaggi, controlla che nella tua email non siano state aggiunte regole di inoltro automatico.</li>
+      <li><b>Credenziali SPID</b> → cambia la password dal sito del tuo gestore SPID, controlla lo storico degli accessi e, se trovi accessi non tuoi, contatta il gestore e chiedi la sospensione dell'identità.</li>
+      <li id="foto-documenti"><b>Foto di documenti o codice fiscale</b> → denuncia (ti protegge se qualcuno usa i tuoi dati), poi nei mesi successivi controlla che non siano stati aperti finanziamenti o contratti a tuo nome, ad esempio richiedendo i tuoi dati alla Centrale dei rischi della Banca d'Italia.</li>
+    </ul></div>
+  <div class="step"><div class="step-t"><span class="badge green">IN OGNI CASO</span></div>
+    <ol>
+      <li>Fai screenshot del messaggio e del sito falso (con l'indirizzo visibile).</li>
+      <li>Segnala alla Polizia Postale su <a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a>; se c'è un danno, denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- 08 -->
+<article class="card" id="s08">
+  <div class="card-h"><span class="n">#08</span><h3>Finto operatore della banca / "conto sicuro"</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Messaggio o chiamata, anche con il nome della banca sul display, dall'"ufficio antifrode": <em>"C'è un accesso sospetto, dobbiamo mettere al sicuro i suoi soldi"</em>. Ti fanno fare un bonifico su un "conto sicuro", ti chiedono i codici, o ti mandano un finto carabiniere o finanziere a "confermare".</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">DURANTE LA CHIAMATA</span></div>
+    <ol>
+      <li>Riattacca. Non dare codici, non fare bonifici, non installare app.</li>
+      <li>Chiama <b>tu</b> la banca al numero sul retro della carta o sul sito ufficiale (meglio da un altro telefono, o aspetta qualche minuto prima di richiamare).</li>
+      <li>Ricorda: nessuna banca ti chiede <b>mai</b> di spostare soldi su un altro conto per proteggerli.</li>
+      <li>Se mentre fai un bonifico l'app segnala che nome e IBAN <b>non corrispondono</b>, fermati.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">HAI FATTO IL BONIFICO O DATO CODICI</span></div>
+    <ol>
+      <li>Chiama subito la banca: chiedi il richiamo del bonifico, il blocco dell'home banking e delle carte.</li>
+      <li>Cambia le credenziali dell'home banking da un dispositivo sicuro.</li>
+      <li>Se hai installato un'app su loro indicazione, segui anche la scheda <a href="#s10">#10</a>.</li>
+      <li>Denuncia e poi presenta reclamo scritto alla banca (<a href="#parte-c">Parte C</a>).</li>
+      <li>Se qualcuno si presenta a casa per "ritirare" carte, contanti o gioielli, chiama il <b>112</b>.</li>
+    </ol></div>
+</article>
+
+<!-- 09 -->
+<article class="card" id="s09">
+  <div class="card-h"><span class="n">#09</span><h3>Finto supporto WhatsApp e app modificate</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><em>"Il tuo account verrà sospeso, verifica qui"</em>, <em>"Passa a WhatsApp Gold / WhatsApp Plus con nuove funzioni"</em>. Servono a rubare il codice o a farti installare app infette. Le versioni modificate possono anche far bloccare il tuo account da WhatsApp.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Non cliccare: WhatsApp non ti scrive in chat per minacciarti di sospensione e non chiede codici.</li>
+      <li>Se hai dato il codice di verifica, segui subito la scheda <a href="#s02"><b>#02</b></a>.</li>
+      <li>Se hai installato una versione modificata: fai prima il backup delle chat, poi disinstallala e installa WhatsApp <b>solo</b> da App Store o Google Play.</li>
+      <li>Se l'account risulta bloccato, usa nell'app il pulsante per richiedere la revisione.</li>
+      <li>Cambia le password importanti (email, banca) da un altro dispositivo e attiva la verifica in due passaggi su WhatsApp.</li>
+      <li>Se l'app modificata chiedeva permessi speciali, segui anche la scheda <a href="#s19">#19</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 10 -->
+<article class="card" id="s10">
+  <div class="card-h"><span class="n">#10</span><h3>Condivisione schermo e app di controllo remoto</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Un finto tecnico (banca, operatore telefonico, Amazon, Microsoft) ti chiede di condividere lo schermo durante una videochiamata WhatsApp, o di installare app come AnyDesk o TeamViewer. Così vede i codici che ricevi e può operare sul tuo conto.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Interrompi subito la chiamata e la condivisione dello schermo.</li>
+      <li>Metti il telefono (o il computer) in <b>modalità aereo</b> o staccalo da internet.</li>
+      <li>Disinstalla l'app di controllo remoto.</li>
+      <li>Da <b>un altro telefono</b>, chiama la banca: blocca carte e home banking e controlla i movimenti.</li>
+      <li>Da un altro dispositivo cambia password e PIN di banca, email e servizi principali.</li>
+      <li>Se non sei sicuro che il dispositivo sia pulito, fai il backup dei tuoi file e il ripristino ai dati di fabbrica.</li>
+      <li>Denuncia e, se ci sono operazioni non tue, segui la <a href="#parte-c">Parte C</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 11 -->
+<article class="card" id="s11">
+  <div class="card-h"><span class="n">#11</span><h3>Finte offerte di lavoro (like, recensioni, "task")</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><em>"Guadagna 50-200 euro al giorno mettendo like o recensioni"</em>. All'inizio ti pagano piccole somme vere per conquistare fiducia. Poi ti spostano su Telegram o su un sito e ti chiedono di "investire" o "sbloccare" i guadagni versando soldi, sempre di più. I soldi non tornano.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Fermati: non versare altro, nemmeno per "sbloccare" o "recuperare" quanto hai già messo.</li>
+      <li>Salva tutto: screenshot delle chat, nomi e numeri dei contatti, indirizzo del sito, ricevute dei pagamenti, IBAN o indirizzi dei wallet.</li>
+      <li>Blocca e segnala i contatti su WhatsApp e su Telegram, esci dai gruppi.</li>
+      <li>Se hai pagato, chiama subito la banca (<a href="#parte-c">Parte C</a>).</li>
+      <li>Se hai inviato foto di documenti o dati personali, segui anche il punto <a href="#foto-documenti">"Foto di documenti"</a> della scheda #07.</li>
+      <li>Denuncia alla Polizia Postale.</li>
+    </ol></div>
+</article>
+
+<!-- 12 -->
+<article class="card" id="s12">
+  <div class="card-h"><span class="n">#12</span><h3>Gruppi di investimento, trading e criptovalute</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Vieni aggiunto a un gruppo con un finto "professore", a volte con la faccia di un personaggio noto (anche falsa, fatta con l'IA). Complici nel gruppo mostrano guadagni enormi. Ti fanno aprire un conto su una piattaforma finta, dove il saldo sembra crescere. Quando provi a prelevare, ti chiedono "tasse" o "commissioni".</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Non versare altro e non pagare "tasse" o "commissioni" per sbloccare un prelievo: il saldo che vedi non esiste.</li>
+      <li>Salva tutto: chat, nome e indirizzo della piattaforma, ricevute, indirizzi dei wallet e ID delle transazioni.</li>
+      <li>Esci dal gruppo, segnalalo e blocca gli amministratori.</li>
+      <li>Chiama la banca o l'exchange da cui sono partiti i soldi e segnala la frode (<a href="#parte-c">Parte C</a>).</li>
+      <li>Se hai dato accesso remoto al telefono o al computer, segui anche la scheda <a href="#s10">#10</a>.</li>
+      <li>Denuncia alla Polizia Postale e segnala la piattaforma alla <b>Consob</b> (<a href="https://www.consob.it" target="_blank" rel="noopener">www.consob.it</a>).</li>
+      <li>Prima di investire in futuro, controlla sul sito Consob gli avvisi sulle società abusive.</li>
+    </ol></div>
+</article>
+
+<!-- 13 -->
+<article class="card" id="s13">
+  <div class="card-h"><span class="n">#13</span><h3>Truffe sentimentali</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Una persona conosciuta online, o arrivata con un "numero sbagliato", costruisce in settimane o mesi una relazione. Poi arrivano le richieste: biglietto aereo, spese mediche, dogana, oppure un "investimento" insieme.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Se non l'hai mai incontrata di persona e chiede soldi, è una truffa.</li>
+      <li>Verifica: cerca le sue foto con una ricerca per immagini (Google Immagini o Google Lens) e proponi una videochiamata: di solito trova sempre scuse.</li>
+      <li>Non mandare altri soldi, regali, codici di buoni o foto intime.</li>
+      <li>Salva le chat, poi interrompi i contatti, blocca e segnala.</li>
+      <li>Se hai pagato, chiama subito la banca (<a href="#parte-c">Parte C</a>) e denuncia.</li>
+      <li>Parlane con una persona di fiducia: queste truffe giocano sulla vergogna, ma sono organizzate da professionisti.</li>
+    </ol></div>
+</article>
+
+<!-- 14 -->
+<article class="card" id="s14">
+  <div class="card-h"><span class="n">#14</span><h3>Sextortion e immagini intime</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Dopo una conversazione o videochiamata intima arriva il ricatto: <em>"Pubblico il video se non paghi"</em>. Oppure un messaggio generico che sostiene di averti registrato.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li><b>Non pagare</b>: pagare porta solo a nuove richieste.</li>
+      <li>Non rispondere più e <b>non cancellare</b> le chat: fai screenshot di profilo, numero, messaggi e richieste di pagamento.</li>
+      <li>Blocca e segnala il profilo su WhatsApp e sugli altri social dove ti ha contattato.</li>
+      <li>Se temi che le immagini vengano pubblicate, fai la segnalazione al <b>Garante Privacy</b> con il modulo online (<a href="https://www.garanteprivacy.it/revengeporn" target="_blank" rel="noopener">garanteprivacy.it/revengeporn</a>): indica le piattaforme dove temi la diffusione. Il Garante decide entro 48 ore e può ordinare alle piattaforme di bloccare il materiale. Possono segnalare anche i ragazzi dai 14 anni, per i più piccoli i genitori.</li>
+      <li>Se sei maggiorenne puoi usare anche <b><a href="https://stopncii.org" target="_blank" rel="noopener">StopNCII.org</a></b>: crea un'impronta digitale delle immagini sul tuo dispositivo, senza caricarle, e le piattaforme aderenti la usano per bloccarle.</li>
+      <li>Denuncia alla Polizia Postale (<a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a>): estorsione e minaccia sono reati.</li>
+      <li>Se è coinvolto un <b>minore</b>, è un reato gravissimo da trattare in urgenza: rivolgiti subito alla Polizia Postale. Per i minorenni esiste anche il servizio <b><a href="https://takeitdown.ncmec.org" target="_blank" rel="noopener">Take It Down</a></b> per far rimuovere le immagini.</li>
+    </ol></div>
+</article>
+
+<!-- 15 -->
+<article class="card" id="s15">
+  <div class="card-h"><span class="n">#15</span><h3>Compravendite online (Vinted, Subito, Marketplace)</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><b>Come venditore:</b> un finto acquirente ti sposta su WhatsApp e ti manda un link per "ricevere il pagamento" o "confermare la spedizione". Il link ruba i dati della carta. <b>Come acquirente:</b> paghi in anticipo fuori dalla piattaforma (bonifico, ricarica) e la merce non arriva mai.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PREVENZIONE</span></div>
+    <ol>
+      <li>Resta nella chat e nel sistema di pagamento della piattaforma.</li>
+      <li>Per <b>ricevere</b> soldi non serve mai inserire i dati della tua carta né codici.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">SE CI SEI CASCATO</span></div>
+    <ol>
+      <li>Hai inserito i dati della carta → bloccala subito e disconosci le operazioni (<a href="#parte-c">Parte C</a>).</li>
+      <li>Hai pagato e la merce non arriva → se hai pagato sulla piattaforma, apri una contestazione dall'app; se hai pagato con carta o PayPal, chiedi il rimborso tramite la contestazione del tuo circuito; se hai fatto un bonifico o una ricarica, chiama subito la banca o l'emittente.</li>
+      <li>Segnala l'utente alla piattaforma, con gli screenshot.</li>
+      <li>Denuncia, indicando profilo, numero di telefono, IBAN o carta su cui hai pagato.</li>
+    </ol></div>
+</article>
+
+<!-- 16 -->
+<article class="card" id="s16">
+  <div class="card-h"><span class="n">#16</span><h3>Affitti e case vacanza inesistenti</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Annuncio con prezzo molto basso, il "proprietario" è all'estero e chiede una caparra via bonifico o ricarica per "bloccare" la casa. La casa non esiste o non è sua.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Prima di pagare: cerca le foto dell'annuncio con una ricerca per immagini, chiedi di vedere la casa o un contratto verificabile, preferisci piattaforme con pagamento protetto.</li>
+      <li>Se hai pagato: chiama subito la banca o l'emittente della carta ricaricata (<a href="#parte-c">Parte C</a>).</li>
+      <li>Se la prenotazione era partita da una piattaforma (Airbnb, Booking ecc.), segnala subito l'annuncio e chiedi assistenza alla piattaforma.</li>
+      <li>Salva annuncio, chat e ricevute, e denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- 17 -->
+<article class="card" id="s17">
+  <div class="card-h"><span class="n">#17</span><h3>Premi, concorsi, regali e buoni falsi</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><em>"Hai vinto un iPhone"</em>, <em>"Buono da 500 euro per l'anniversario del supermercato"</em>, <em>"Rispondi al sondaggio e ricevi un premio"</em>. Ti chiedono dati, una piccola "spesa di spedizione" con la carta (che in realtà attiva abbonamenti), o di inoltrare il messaggio.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Non hai vinto nulla a cui non hai partecipato: non cliccare e non inoltrare il messaggio.</li>
+      <li>Se hai inserito la carta: bloccala e disconosci gli addebiti (<a href="#parte-c">Parte C</a>). Controlla l'estratto conto anche nei mesi successivi: questi abbonamenti addebitano piccole cifre ricorrenti.</li>
+      <li>Se hai inserito il numero di telefono e ti arrivano addebiti sul credito, chiedi all'operatore di disattivare i servizi a pagamento non richiesti e di attivare il blocco.</li>
+      <li>Segnala il messaggio e, se c'è un danno, denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- 18 -->
+<article class="card" id="s18">
+  <div class="card-h"><span class="n">#18</span><h3>Chiamate e messaggi da prefissi esteri</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Chiamate o messaggi da numeri con prefissi esteri sconosciuti (+62, +84, +254, +92 e altri): offerte di lavoro, "numero sbagliato", proposte di investimento. Sono spesso l'inizio delle truffe <a href="#s11">#11</a>, <a href="#s12">#12</a> e <a href="#s13">#13</a>.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Non rispondere e non richiamare.</li>
+      <li>Blocca e segnala: apri la chat → nome in alto → <b>Blocca</b> e <b>Segnala</b>.</li>
+      <li>Attiva <span class="path">Impostazioni → Privacy → Chiamate → Silenzia chiamate da numeri sconosciuti</span>.</li>
+      <li>Attiva <span class="path">Impostazioni → Privacy → Gruppi → I miei contatti</span>.</li>
+      <li>Se hai già iniziato a parlarci, segui la scheda corrispondente (<a href="#s11">#11</a>, <a href="#s12">#12</a> o <a href="#s13">#13</a>).</li>
+    </ol></div>
+</article>
+
+<!-- 19 -->
+<article class="card" id="s19">
+  <div class="card-h"><span class="n">#19</span><h3>Allegati e app infette da installare</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Ti inviano un file (.apk su Android, documenti, la "foto del pacco" di un finto corriere, un "invito al matrimonio", una "fattura") o ti chiedono di installare un'app per "tracciare il pacco", "ricevere il rimborso", "parlare con l'operatore". L'app ruba dati, legge gli SMS o controlla il telefono.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Metti subito il telefono in <b>modalità aereo</b>.</li>
+      <li>Disinstalla l'app. Su Android, se non si lascia disinstallare, controlla in <span class="path">Impostazioni → Sicurezza</span> le app con permessi di amministratore e in <span class="path">Impostazioni → Accessibilità</span> le app con accesso speciale: togli i permessi, poi disinstallala.</li>
+      <li>Su Android esegui la scansione di Google Play Protect (Play Store → foto profilo → Play Protect).</li>
+      <li>Da <b>un altro dispositivo</b>, chiama la banca e cambia le password di banca, email e servizi principali.</li>
+      <li>Se non sei sicuro che il telefono sia pulito, fai il backup delle foto e delle chat e il <b>ripristino ai dati di fabbrica</b>. Dopo il ripristino, non reinstallare l'app sospetta.</li>
+      <li>Se ci sono operazioni non tue, segui la <a href="#parte-c">Parte C</a> e denuncia.</li>
+    </ol>
+    <div class="note">Non aprire allegati inattesi nemmeno se arrivano da amici: il loro account potrebbe essere stato rubato. Installa app solo dagli store ufficiali.</div></div>
+</article>
+
+<!-- 20 -->
+<article class="card" id="s20">
+  <div class="card-h"><span class="n">#20</span><h3>Finto recupero dei soldi persi</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Dopo una truffa, qualcuno ti contatta fingendosi avvocato, agenzia, ente pubblico o "hacker etico": <em>"Possiamo recuperare i tuoi soldi, serve un anticipo"</em>. È la seconda truffa sulla stessa vittima.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Nessuno recupera soldi truffati in cambio di un anticipo: non pagare e non dare accesso al telefono o al conto.</li>
+      <li>Rivolgiti solo alla tua banca, alla Polizia Postale o a un avvocato scelto da te.</li>
+      <li>Salva i messaggi e aggiungili alla denuncia che hai già fatto.</li>
+      <li>Se hai già pagato, segui la <a href="#parte-c">Parte C</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 21 -->
+<article class="card" id="s21">
+  <div class="card-h"><span class="n">#21</span><h3>False convocazioni di polizia ed enti pubblici</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Un messaggio o un PDF con loghi della Polizia, dei Carabinieri, della Polizia Postale, dell'INPS o dell'Agenzia delle Entrate, a volte firmato con il nome di un vero dirigente. Ti accusa di reati gravi o ti segnala una "pendenza", minaccia arresto o sanzioni e ti chiede di rispondere, mandare dati o pagare per "chiudere il caso" o ottenere un rimborso.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Mantieni la calma: polizia ed enti pubblici <b>non</b> chiedono soldi o dati via WhatsApp, email o SMS sotto minaccia di procedimenti.</li>
+      <li>Non rispondere, non aprire allegati, non cliccare link, non pagare, non inviare documenti.</li>
+      <li>Se vuoi verificare, usa solo i canali ufficiali che trovi tu: poliziadistato.it, il sito dell'ente, il numero della questura o della caserma più vicina. Mai i contatti scritti nel messaggio.</li>
+      <li>Fai screenshot e segnala alla Polizia Postale su <a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a>, poi blocca il mittente.</li>
+      <li>Se hai già risposto o inviato dati, segui la scheda <a href="#s07">#07</a>; se hai pagato, la <a href="#parte-c">Parte C</a>, e denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- 22 -->
+<article class="card" id="s22">
+  <div class="card-h"><span class="n">#22</span><h3>Finti prestiti e finanziamenti</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Ti offrono un prestito veloce, senza garanzie e "anche ai cattivi pagatori". Per erogarlo chiedono prima un anticipo: "spese di istruttoria", "assicurazione", "tasse", "sblocco della pratica". Dopo il pagamento ne chiedono un altro, e il prestito non arriva mai. Spesso chiedono anche foto dei documenti.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Un prestito vero non si sblocca pagando in anticipo: non versare nulla.</li>
+      <li>Prima di qualsiasi finanziamento, verifica che la società sia iscritta negli elenchi della <b>Banca d'Italia</b> (banche e intermediari finanziari) o dell'<b>OAM</b> (agenti e mediatori creditizi).</li>
+      <li>Se hai pagato: chiama subito la banca o l'emittente della carta ricaricata (<a href="#parte-c">Parte C</a>).</li>
+      <li>Se hai inviato documenti o codice fiscale, segui il punto <a href="#foto-documenti">"Foto di documenti"</a> della scheda #07.</li>
+      <li>Salva chat e ricevute, blocca, segnala e denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- 23 -->
+<article class="card" id="s23">
+  <div class="card-h"><span class="n">#23</span><h3>Finte raccolte fondi e biglietti falsi</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p><b>Raccolte fondi:</b> dopo un'emergenza (alluvione, terremoto, guerra) o per un "bambino malato", arriva un appello con un IBAN o un link per donare, spesso inoltrato da amici in buona fede.<br><b>Biglietti:</b> concerti e partite esauriti offerti in chat o nei gruppi, da pagare con bonifico o ricarica; i biglietti non arrivano, sono falsi o già venduti a più persone.</p>
+  <div class="h-sm green">RISOLVI PASSO PER PASSO</div>
+  <div class="step">
+    <ol>
+      <li>Dona solo dai siti ufficiali delle organizzazioni, scrivendo l'indirizzo a mano, non da link o IBAN ricevuti in chat. Gli enti del terzo settore si possono verificare sul Registro unico nazionale del terzo settore (RUNTS).</li>
+      <li>Compra biglietti solo dai canali ufficiali o dalle piattaforme di rivendita autorizzate dall'organizzatore.</li>
+      <li>Non inoltrare appelli che non hai verificato.</li>
+      <li>Se hai pagato: chiama subito la banca o l'emittente (<a href="#parte-c">Parte C</a>); se hai pagato con carta o PayPal, apri una contestazione.</li>
+      <li>Salva chat, profilo del venditore e ricevute, segnala e denuncia.</li>
+    </ol></div>
+</article>
+
+<!-- PARTE C -->
+<div class="part" id="parte-c">PARTE C</div>
+<h2>Ho già pagato o dato dati: cosa fare</h2>
+<p class="sub">Agisci subito: i primi minuti e le prime ore contano.</p>
+<div class="grid2">
+  <div class="box"><h4>Ho fatto un bonifico</h4><ol>
+    <li>Chiama subito la banca e chiedi il richiamo del bonifico. Il bonifico istantaneo è irrevocabile, ma chiedi comunque: la banca può tentare il recupero presso la banca del beneficiario e segnalare il conto.</li>
+    <li>Denuncia, indicando IBAN e intestatario del beneficiario, e porta la denuncia alla banca.</li>
+    <li>Un bonifico disposto da te, anche se ingannato, per la legge è "autorizzato": il rimborso non è automatico. Puoi comunque presentare reclamo (vedi sotto).</li></ol></div>
+  <div class="box"><h4>Pagamenti con carta o dati della carta</h4><ol>
+    <li>Blocca la carta (app della banca o numero sul retro).</li>
+    <li>Chiedi alla banca il disconoscimento delle operazioni che non hai autorizzato tu. Hai tempo fino a 13 mesi dall'addebito, ma fallo subito.</li>
+    <li>Per le operazioni non autorizzate la banca deve rimborsare entro la giornata lavorativa successiva, salvo che dimostri tua colpa grave (es. aver comunicato tu i codici).</li>
+    <li>Denuncia: la copia serve per la pratica di rimborso.</li></ol></div>
+  <div class="box"><h4>Ricarica (Postepay, prepagate, buoni)</h4><ol>
+    <li>Contatta subito l'emittente della carta o dei buoni e chiedi il blocco.</li>
+    <li>Denuncia, indicando il numero della carta ricaricata o i codici dei buoni.</li></ol></div>
+  <div class="box"><h4>Criptovalute</h4><ol>
+    <li>Salva indirizzo del wallet, ID della transazione, chat.</li>
+    <li>Se hai usato un exchange, avvisalo subito con questi dati.</li>
+    <li>Denuncia: sono difficili da recuperare, ma le transazioni sono tracciabili.</li></ol></div>
+  <div class="box"><h4>Codici, password o accesso al telefono</h4><ol>
+    <li>Chiama la banca e fai bloccare gli accessi.</li>
+    <li>Cambia le password, l'email per prima, da un dispositivo sicuro.</li>
+    <li>Attiva la verifica in due passaggi ovunque possibile.</li></ol></div>
+  <div class="box"><h4>In ogni caso</h4><ul>
+    <li>Non cancellare nulla: chat, numeri, screenshot, ricevute.</li>
+    <li>Annota data e ora di ogni passaggio.</li>
+    <li>Non pagare nessuno che promette di recuperare i soldi (scheda <a href="#s20">#20</a>).</li></ul></div>
+</div>
+
+<div class="box">
+  <h3>Se la banca non rimborsa: reclamo e Arbitro Bancario Finanziario</h3>
+  <ol>
+    <li>Invia un reclamo scritto alla banca (PEC, raccomandata A/R o modulo online) con: i tuoi dati, i dati del conto o della carta, le operazioni contestate, la richiesta di rimborso e in allegato denuncia, estratto conto e prova del blocco.</li>
+    <li>La banca deve rispondere entro 15 giorni lavorativi (fino a 35 in casi eccezionali motivati).</li>
+    <li>Se rifiuta o non risponde, puoi ricorrere all'Arbitro Bancario Finanziario (<a href="https://www.arbitrobancariofinanziario.it" target="_blank" rel="noopener">www.arbitrobancariofinanziario.it</a>): si fa online, sulla base dei documenti, senza bisogno di un avvocato.</li>
+  </ol>
+</div>
+
+<div class="alert">
+  <div class="kicker">Prima di pagare: la verifica del beneficiario</div>
+  <p>Dal 9 ottobre 2025, prima di ogni bonifico (ordinario o istantaneo) la banca confronta il nome che hai scritto con l'intestatario reale dell'IBAN. Se l'app mostra mancata corrispondenza o corrispondenza parziale, fermati e verifica a voce con un canale che già conosci.</p>
+</div>
+
+<!-- PARTE D -->
+<div class="part" id="parte-d">PARTE D</div>
+<h2>Denunce, segnalazioni e contatti utili</h2>
+<div class="box" style="margin-top:16px">
+  <h3>Cosa portare alla denuncia</h3>
+  <ul>
+    <li>Screenshot delle chat, con numero di telefono o profilo del truffatore ben visibile.</li>
+    <li>Data e ora dei fatti, annotate passo per passo.</li>
+    <li>Ricevute dei pagamenti, IBAN, numeri di carte ricaricate, indirizzi dei wallet.</li>
+    <li>Indirizzi dei siti falsi e nomi delle app installate.</li>
+    <li>Un documento d'identità.</li>
+  </ul>
+</div>
+<div class="grid2">
+  <div class="box"><h4>Polizia Postale e denuncia</h4><ul>
+    <li>Segnalazione online: <a href="https://www.commissariatodips.it" target="_blank" rel="noopener"><b>www.commissariatodips.it</b></a></li>
+    <li>Denuncia: in questura, in un ufficio della Polizia Postale o presso i carabinieri.</li>
+    <li>Denunce online: <a href="https://denunceonline.poliziadistato.it" target="_blank" rel="noopener"><b>denunceonline.poliziadistato.it</b></a> (anche da app IO). La pre-denuncia per truffe e frodi è in sperimentazione solo in alcuni uffici di Lazio e Umbria e va confermata di persona entro 48 ore; la segnalazione di smarrimento del telefono vale in tutta Italia.</li>
+    <li>Canale WhatsApp ufficiale della Polizia di Stato (scheda "Aggiornamenti") per gli avvisi sulle nuove truffe.</li></ul></div>
+  <div class="box"><h4>WhatsApp</h4><ul>
+    <li>Tieni premuto il messaggio o apri la chat → <b>Segnala / Blocca</b>.</li>
+    <li>Account rubato o bloccato: <span class="path">Impostazioni → Aiuto → Contattaci</span> oppure <a href="https://www.whatsapp.com/contact" target="_blank" rel="noopener">whatsapp.com/contact</a></li></ul></div>
+  <div class="box"><h4>Soldi e banche</h4><ul>
+    <li>La tua banca: numero sul retro della carta o sul sito ufficiale. Salvalo <b>ora</b> in rubrica.</li>
+    <li>Arbitro Bancario Finanziario: <a href="https://www.arbitrobancariofinanziario.it" target="_blank" rel="noopener">www.arbitrobancariofinanziario.it</a></li>
+    <li>Consob (investimenti e società abusive): <a href="https://www.consob.it" target="_blank" rel="noopener">www.consob.it</a></li></ul></div>
+  <div class="box"><h4>Immagini intime e altri contatti</h4><ul>
+    <li>Garante Privacy, segnalazione immagini intime: <a href="https://www.garanteprivacy.it/revengeporn" target="_blank" rel="noopener">garanteprivacy.it/revengeporn</a></li>
+    <li><a href="https://stopncii.org" target="_blank" rel="noopener">StopNCII.org</a> (maggiorenni) e <a href="https://takeitdown.ncmec.org" target="_blank" rel="noopener">Take It Down</a> (minorenni).</li>
+    <li>Emergenze: <b>112</b></li>
+    <li>Piattaforme (Vinted, Subito, Marketplace, Airbnb, Booking): segnala l'utente dall'app.</li></ul></div>
+</div>
+
+<div class="oneline">
+  <div class="kicker">In una riga</div>
+  <p>Chi ti chiede soldi o codici via chat va verificato a voce, sul numero che conosci. Se c'è fretta, è quasi sempre una truffa.</p>
+</div>
+
+<footer>
+  <div class="l">© ransomNews<span>|</span><a href="https://ransomnews.online/ethics.html">ethics</a><span>|</span><a href="https://paranoi.ca/">ThreeSeep Collective</a></div>
+  <div>Aggiornato al 15/10/2026</div>
+</footer>
+</main>
+
+<a class="top" href="#top" aria-label="Torna su">↑</a>
+</body>
+</html>
