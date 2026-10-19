@@ -1,0 +1,31 @@
+name: Proponi una guida o un tool
+description: Un'idea per una nuova guida o un nuovo strumento.
+title: "[Proposta] "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Cosa proponi
+      options:
+        - Una guida
+        - Un tool
+    validations:
+      required: true
+  - type: textarea
+    id: per-chi
+    attributes:
+      label: A chi serve
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: Che problema risolve
+    validations:
+      required: true
+  - type: textarea
+    id: materiale
+    attributes:
+      label: Fonti o materiale già pronto
+      description: Facoltativo. Link, appunti, codice.
