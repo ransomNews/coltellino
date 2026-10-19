@@ -1,0 +1,43 @@
+name: Errore in una guida
+description: Un passaggio, un menu o un link non corrisponde più a quello che vedi.
+title: "[Errore] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per la segnalazione. **Le segnalazioni sono pubbliche**: non inserire numeri di telefono, IBAN, nomi o screenshot di chat private.
+  - type: dropdown
+    id: guida
+    attributes:
+      label: Guida
+      options:
+        - Truffe WhatsApp
+        - Altra
+    validations:
+      required: true
+  - type: input
+    id: dove
+    attributes:
+      label: Dove
+      description: Scheda, passo o pagina, per esempio "scheda 02, passo 4".
+    validations:
+      required: true
+  - type: textarea
+    id: scritto
+    attributes:
+      label: Cosa c'è scritto
+    validations:
+      required: true
+  - type: textarea
+    id: vedi
+    attributes:
+      label: Cosa vedi tu
+      description: Com'è oggi il menu o la procedura, oppure cosa non funziona.
+    validations:
+      required: true
+  - type: input
+    id: telefono
+    attributes:
+      label: Telefono
+      description: Facoltativo. Modello, sistema operativo e versione di WhatsApp, se li conosci.

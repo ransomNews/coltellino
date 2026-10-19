@@ -1,3 +1,5 @@
+![coltellino, di ransomNews: guide pratiche e piccoli strumenti contro truffe e minacce digitali](.github/assets/banner.png)
+
 # coltellino
 
 **Il coltellino svizzero di ransomNews: guide pratiche e piccoli strumenti contro le truffe e le minacce digitali.** Gratuiti e in italiano.
@@ -10,7 +12,7 @@
 
 | Guida | Per chi | Aggiornata al | Scarica |
 |---|---|---|---|
-| Truffe WhatsApp: come riconoscerle e cosa fare, caso per caso | Chi usa WhatsApp, anche senza competenze tecniche | 15 ottobre 2026 | [PDF](guide/truffe-whatsapp/ransomNews_guida_truffe-whatsapp.pdf) |
+| [Truffe WhatsApp](guide/truffe-whatsapp/): come riconoscerle e cosa fare, caso per caso | Chi usa WhatsApp, anche senza competenze tecniche | 15 ottobre 2026 | [PDF](guide/truffe-whatsapp/ransomNews_guida_truffe-whatsapp.pdf) |
 
 ### Tool
 
@@ -30,12 +32,12 @@ Come usarla: trova il tuo caso nell'indice e segui i passaggi nell'ordine in cui
 
 ## Hai trovato un errore?
 
-Le truffe cambiano e WhatsApp sposta i menu. Se un passaggio non corrisponde più a ciò che vedi sul telefono, [apri una segnalazione](https://github.com/ransomNews/coltellino/issues/new/choose) o scrivi a desk@ransomnews.online.
+Le truffe cambiano e WhatsApp sposta i menu. Se un passaggio non corrisponde più a ciò che vedi sul telefono, [apri una segnalazione](https://github.com/ransomNews/coltellino/issues/new/choose) o scrivi a desk@ransomnews.online. Per proporre una guida o un tool: [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Licenza
 
-Guide: [Creative Commons Attribuzione 4.0](LICENSE). Libere di essere condivise e riusate, con citazione di ransomNews.
-Codice dei tool: GPL-3.0.
+Guide: [Creative Commons Attribuzione 4.0](LICENSE.md). Libere di essere condivise e riusate, con citazione di ransomNews.
+Codice dei tool: [GPL-3.0](tool/LICENSE).
 
 ## Avvertenza
 
