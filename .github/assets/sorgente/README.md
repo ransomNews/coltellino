@@ -11,3 +11,5 @@
 ```
 
 Colori presi dal PDF della guida truffe WhatsApp, carattere Poppins come sul sito.
+
+`social.html` segue il modello di GitHub per le anteprime dei repo: tutto il contenuto sta dentro un bordo di 80 pixel, così niente viene tagliato. `social.html` non usa `base.css`.
