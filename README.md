@@ -1,3 +1,5 @@
+![coltellino, di ransomNews: guide pratiche e piccoli strumenti contro truffe e minacce digitali](.github/assets/banner.png)
+
 # coltellino
 
 **Il coltellino svizzero di ransomNews: guide pratiche e piccoli strumenti contro le truffe e le minacce digitali.** Gratuiti e in italiano.
