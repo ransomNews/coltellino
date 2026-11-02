@@ -13,6 +13,7 @@ body:
       label: Guida
       options:
         - Truffe WhatsApp
+        - PIN SIM
         - Altra
     validations:
       required: true
@@ -40,4 +41,4 @@ body:
     id: telefono
     attributes:
       label: Telefono
-      description: Facoltativo. Modello, sistema operativo e versione di WhatsApp, se li conosci.
+      description: Facoltativo. Modello, sistema operativo e versione dell'app, se li conosci.
