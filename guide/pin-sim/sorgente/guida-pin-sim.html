@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida PIN SIM · ransomNews</title>
+<meta name="description" content="Perché attivare il blocco della SIM con PIN e come farlo, passo per passo, su Android (Pixel, Samsung e altri) e iPhone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c8202f; --red-soft:#fbeeee; --red-line:#e8a3a9;
+  --blue:#1a6fd8; --green:#0f7a52; --amber-bg:#fdf3e4; --amber:#8a5a00; --amber-line:#e0a24a;
+  --ink:#111; --text:#2b2b33; --muted:#6d6d7a; --line:#d8d8e0; --panel:#f0f0f4; --step:#f4f4f8; --bg:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,sans-serif;font-size:16px;line-height:1.6}
+a{color:var(--red)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.topbar{background:var(--panel)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand b{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.brand b span{color:var(--red)}
+.brand .sep{width:1px;height:26px;background:#c9c9d2}
+.brand svg{width:22px;height:22px;fill:#777}
+.tag{font-size:13px;font-weight:700;color:#888;letter-spacing:.5px}
+.stripe{height:18px;background:linear-gradient(90deg,#a3161f,var(--red));clip-path:polygon(0 0,100% 0,100% 30%,0 100%)}
+
+/* Hero */
+.hero{margin:32px 0 28px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;gap:28px;align-items:center}
+.hero img{width:128px;height:118px;object-fit:contain;background:#fff;border-radius:6px;flex-shrink:0}
+.hero h1{margin:0;font-size:46px;line-height:1.1;font-weight:800;color:var(--ink);letter-spacing:-.5px}
+.hero h1 span{color:var(--red)}
+.hero .collab{margin:8px 0 10px;color:#555;font-size:18px}
+.hero p{margin:0;color:#555;font-size:18px}
+
+/* Boxes */
+.oneline{background:var(--red-soft);border:1px solid var(--red-line);border-radius:12px;padding:20px 24px;margin:0 0 28px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin:0 0 6px}
+.oneline p{margin:0;font-size:20px;font-weight:700;color:var(--ink);line-height:1.45}
+.alert{border:2px solid var(--red);border-radius:12px;padding:20px 24px;margin:0 0 14px}
+.alert p{margin:0}
+.box{border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin:0 0 28px}
+.box h3{margin:0 0 8px;font-size:17px;color:var(--ink)}
+.path{display:inline-block;font-size:.85em;background:#f3f3f6;border:1px solid #d5d5dd;border-radius:6px;padding:1px 8px;color:#333;white-space:normal}
+.code{display:inline-block;font-weight:700;color:var(--green);background:#eef8f3;border:1px solid #cfe9dc;border-radius:6px;padding:1px 9px;font-family:ui-monospace,Menlo,monospace}
+ol,ul{margin:6px 0;padding-left:26px}
+li{margin:3px 0}
+ol li::marker{color:var(--blue);font-weight:700}
+ul li::marker{color:var(--red)}
+
+/* Index */
+.idx-part{font-weight:700;font-size:14px;letter-spacing:.3px;color:var(--ink);margin:16px 0 8px}
+.idx-part a{color:var(--ink);text-decoration:none}
+.idx-part a:hover{color:var(--red)}
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin:0 0 6px}
+.idx-grid a{display:flex;gap:10px;text-decoration:none;color:var(--text);padding:4px 0;border-bottom:1px dashed #e4e4ea}
+.idx-grid a:hover{color:var(--red)}
+.idx-grid a b{color:var(--blue);min-width:22px}
+
+/* Sections */
+.part{font-size:14px;font-weight:700;letter-spacing:.5px;color:var(--red);margin:44px 0 0;padding-bottom:4px;border-bottom:3px solid var(--red);display:inline-block}
+h2{font-size:30px;margin:8px 0 2px;color:var(--ink);line-height:1.25}
+.sub{color:var(--muted);margin:0 0 20px}
+h3.lbl{font-size:16px;margin:24px 0 10px;color:var(--ink)}
+
+.signals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 8px}
+.signal{border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:12px 14px}
+.signal b{display:block;font-size:13px;letter-spacing:1px;color:var(--red)}
+.signal span{font-size:14px}
+
+/* Cards */
+.card{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 20px;scroll-margin-top:16px}
+.card-h{display:flex;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:2px solid #d0d0da;margin-bottom:14px}
+.card-h .n{color:var(--blue);font-weight:700;font-size:15px}
+.card-h h3{margin:0;font-size:20px;color:var(--ink);line-height:1.3;flex:1}
+.card-h .rn{font-size:13px;font-weight:700;color:#555;white-space:nowrap}
+.card-h .rn span{color:#d9626d}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;color:#fff;border-radius:5px;padding:2px 8px;vertical-align:middle;white-space:nowrap}
+.badge.red{background:var(--red)}.badge.blue{background:var(--blue)}.badge.green{background:var(--green)}
+.h-sm{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--muted);margin:14px 0 4px}
+.h-sm.green{color:var(--green)}
+.card p{margin:0 0 8px}
+.step{background:var(--step);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+.step-t{font-weight:700;color:var(--ink);margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.note{background:var(--amber-bg);border-left:4px solid var(--amber-line);color:var(--amber);padding:12px 14px;border-radius:4px;margin:12px 0}
+.note b{color:#111}
+.quote{border:1px dashed #c8c8d2;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:15px}
+.src{font-size:13px;color:var(--muted);border-top:1px solid #e4e4ea;padding-top:10px;margin-top:14px}
+em{color:#555}
+
+/* Part C / D */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
+.grid2 .box{margin:0}
+.box h4{margin:0 0 6px;font-size:16px;color:var(--ink)}
+
+footer{border-top:1px solid var(--line);margin:28px 0 40px;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--muted)}
+footer .l span{margin:0 8px;color:#ccc}
+footer .l a{color:#333;text-decoration:none}
+
+.top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+@media (max-width:700px){
+  .hero{flex-direction:column;text-align:center;padding:22px}
+  .hero h1{font-size:34px}
+  .hero .collab,.hero p{font-size:16px}
+  .idx-grid,.grid2{grid-template-columns:1fr}
+  .signals{grid-template-columns:1fr 1fr}
+  .card{padding:16px}
+  .card-h{flex-wrap:wrap}
+  .card-h .rn{display:none}
+  h2{font-size:24px}
+  .tag{font-size:11px}
+  .brand b{font-size:22px}
+}
+@media print{.top{display:none}.card,.step{break-inside:avoid}}
+
+/* Stampa: A4 alla stessa scala della guida truffe WhatsApp. Le schede scorrono da una pagina all'altra
+   (la regola .card{break-inside:avoid} lascia mezze pagine vuote);
+   non si spezzano i singoli punti, i riquadri piccoli e le intestazioni delle schede. */
+@page{size:A4}
+@media print{
+  html{zoom:0.85}
+  .card,.step{break-inside:auto}
+  li,.note,.alert,.signal,.oneline,.quote,.card-h{break-inside:avoid}
+  h2,h3,h4,.kicker,.step-t,.h-sm,.card-h{break-after:avoid}
+  footer{break-before:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="https://ransomnews.online">
+      <b>ransom<span>News</span></b><i class="sep"></i>
+      <svg viewBox="0 0 24 24" aria-label="Home"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
+    </a>
+    <div class="tag">GUIDA · OTTOBRE 2026</div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<main class="wrap" id="top">
+
+<section class="hero">
+  <img src="data:image/jpeg;base64,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" alt="Logo ransomNews">
+  <div>
+    <h1>GUIDA BLOCCO <span>PIN SIM</span></h1>
+    <p>Perché attivare il PIN della SIM e come farlo, passo per passo, su Android e iPhone. Un minuto di lavoro per proteggere il tuo numero di telefono.</p>
+  </div>
+</section>
+
+<div class="oneline">
+  <div class="kicker">In una riga</div>
+  <p>Il tuo numero di telefono riceve i codici di banca, WhatsApp ed email. Il PIN della SIM impedisce a chi ti ruba il telefono di usarlo in un altro apparecchio.</p>
+</div>
+
+<div class="alert">
+  <div class="kicker">Attenzione · Prima di iniziare</div>
+  <p>Per attivare il blocco ti serve il <b>PIN attuale</b> della SIM. Hai solo <b>3 tentativi</b>: se non sei sicuro del codice, <b>non provare a indovinarlo</b>. Recupera prima PIN e PUK come spiegato nella <a href="#parte-b"><b>Parte B</b></a>.</p>
+</div>
+
+<div class="box">
+  <h3>Come usare questa guida</h3>
+  <ol>
+    <li>Leggi la <a href="#parte-a"><b>Parte A</b></a> per capire da cosa ti protegge il PIN.</li>
+    <li>Recupera PIN e PUK della tua SIM con la <a href="#parte-b"><b>Parte B</b></a>.</li>
+    <li>Trova il tuo telefono nella <a href="#parte-c"><b>Parte C</b></a> e segui i passaggi <b>nell'ordine</b> in cui sono scritti.</li>
+    <li>Leggi la <a href="#parte-d"><b>Parte D</b></a> per sapere cosa cambia dopo l'attivazione.</li>
+    <li>Non saltare la <a href="#parte-e"><b>Parte E</b></a>: smettere di ricevere i codici via SMS è la protezione più importante di tutte.</li>
+    <li>In fondo, la <a href="#parte-f"><b>Parte F</b></a> spiega ciò che il PIN non copre: il SIM swap.</li>
+  </ol>
+</div>
+
+<!-- INDICE -->
+<section class="box" aria-label="Indice">
+  <h3>Indice</h3>
+  <div class="idx-part"><a href="#parte-a">PARTE A — COS'È IL PIN DELLA SIM E PERCHÉ ATTIVARLO</a></div>
+  <div class="idx-part"><a href="#parte-b">PARTE B — PRIMA DI INIZIARE: PIN E PUK</a></div>
+  <div class="idx-part"><a href="#parte-c">PARTE C — LE ISTRUZIONI, TELEFONO PER TELEFONO</a></div>
+  <div class="idx-grid">
+    <a href="#s01"><b>01</b>Google Pixel</a>
+    <a href="#s02"><b>02</b>Samsung Galaxy</a>
+    <a href="#s03"><b>03</b>Altri Android (Xiaomi, Motorola, Oppo…)</a>
+    <a href="#s04"><b>04</b>iPhone</a>
+    <a href="#s05"><b>05</b>Cambiare il PIN predefinito</a>
+    <a href="#s06"><b>06</b>Doppia SIM ed eSIM</a>
+  </div>
+  <div class="idx-part"><a href="#parte-d">PARTE D — DOPO L'ATTIVAZIONE: COSA ASPETTARSI</a></div>
+  <div class="idx-part"><a href="#parte-e">PARTE E — CODICI VIA SMS: IL PUNTO DEBOLE</a></div>
+  <div class="idx-part"><a href="#parte-f">PARTE F — COSA IL PIN NON PROTEGGE: IL SIM SWAP</a></div>
+</section>
+
+<!-- PARTE A -->
+<div class="part" id="parte-a">PARTE A</div>
+<h2>Cos'è il PIN della SIM e perché attivarlo</h2>
+<p class="sub">Due codici diversi, due protezioni diverse.</p>
+
+<div class="grid2">
+  <div class="box"><h4>Codice di sblocco dello schermo</h4>
+    <p>Protegge il <b>telefono</b>: le app, le foto, le chat. Lo inserisci decine di volte al giorno, o lo sostituisci con impronta e riconoscimento del volto.</p></div>
+  <div class="box"><h4>PIN della SIM</h4>
+    <p>Protegge il <b>tuo numero di telefono</b>. È memorizzato nella scheda SIM stessa e viene chiesto a ogni accensione del telefono e ogni volta che la SIM finisce in un altro apparecchio.</p></div>
+</div>
+
+<h3 class="lbl">Perché il numero di telefono è così importante</h3>
+<p>Banche, Poste, WhatsApp, email, social e molti servizi pubblici mandano via SMS i codici per accedere o per reimpostare la password. Chi controlla il tuo numero riceve quei codici al posto tuo.</p>
+<div class="signals">
+  <div class="signal"><b>BANCA</b><span>Codici SMS per autorizzare pagamenti e accessi.</span></div>
+  <div class="signal"><b>WHATSAPP</b><span>Codice di verifica a 6 cifre per registrare l'account.</span></div>
+  <div class="signal"><b>EMAIL</b><span>Recupero della password tramite SMS.</span></div>
+  <div class="signal"><b>SOCIAL</b><span>Verifica in due passaggi via SMS.</span></div>
+  <div class="signal"><b>SERVIZI PUBBLICI</b><span>Codici per accessi e operazioni sui servizi online.</span></div>
+  <div class="signal"><b>CHIAMATE</b><span>Chi ha la SIM risponde e chiama con il tuo numero.</span></div>
+</div>
+
+<h3 class="lbl">Lo scenario da evitare</h3>
+<div class="step"><div class="step-t"><span class="badge red">SENZA PIN</span>Cosa succede se ti rubano il telefono</div>
+  <ol>
+    <li>Qualcuno ti ruba o trova il telefono. Lo schermo è bloccato e non riesce a usarlo.</li>
+    <li>Ma estrae la SIM e la inserisce in un altro telefono.</li>
+    <li>Senza PIN la SIM funziona <b>subito</b>: riceve le tue chiamate e i tuoi SMS.</li>
+    <li>Con i codici via SMS può reimpostare le password e prendere il controllo di WhatsApp, email, social e, nei casi peggiori, dell'home banking. Può anche scrivere ai tuoi contatti a tuo nome.</li>
+  </ol></div>
+<div class="step"><div class="step-t"><span class="badge green">CON IL PIN</span>Cosa succede invece</div>
+  <ol>
+    <li>Inserita in un altro telefono, la SIM chiede il PIN e resta inutilizzabile.</li>
+    <li>Dopo 3 tentativi sbagliati si blocca e serve il PUK, che il ladro non ha.</li>
+    <li>Tu hai il tempo di chiamare l'operatore, bloccare la SIM e mettere al sicuro banca e account.</li>
+  </ol></div>
+
+<div class="note"><b>Costo della protezione:</b> zero euro e un minuto per attivarla. L'unico "fastidio" è digitare il PIN quando riaccendi il telefono, cosa che di solito capita poche volte al mese.</div>
+
+<!-- PARTE B -->
+<div class="part" id="parte-b">PARTE B</div>
+<h2>Prima di iniziare: PIN e PUK</h2>
+<p class="sub">Recupera i codici <b>prima</b> di toccare le impostazioni.</p>
+
+<div class="grid2">
+  <div class="box"><h4>PIN (4 cifre, di solito)</h4><ul>
+    <li>Sblocca la SIM a ogni accensione.</li>
+    <li>Hai <b>3 tentativi</b>.</li>
+    <li>Puoi cambiarlo quando vuoi (scheda <a href="#s05">#05</a>).</li></ul></div>
+  <div class="box"><h4>PUK (8 cifre)</h4><ul>
+    <li>Serve a sbloccare la SIM dopo 3 PIN sbagliati e a impostarne uno nuovo.</li>
+    <li>Hai <b>10 tentativi</b>.</li>
+    <li>Non si può cambiare: conservalo.</li></ul></div>
+</div>
+
+<div class="box">
+  <h3>Dove trovare PIN e PUK</h3>
+  <ol>
+    <li><b>SIM fisica:</b> sono stampati sul supporto di plastica (il "cartoncino") da cui hai staccato la SIM. A volte sono coperti da una patina da grattare.</li>
+    <li><b>eSIM:</b> cerca nei documenti forniti dall'operatore insieme al QR code di attivazione, oppure nell'area clienti.</li>
+    <li>Se non hai mai cambiato il PIN, è ancora quello del cartoncino, anche se il blocco è stato disattivato anni fa (molte SIM italiane arrivano con il PIN già attivo, e tanti lo disattivano al primo utilizzo).</li>
+  </ol>
+</div>
+
+<div class="box">
+  <h3>Non trovi il cartoncino?</h3>
+  <ol>
+    <li><b>Non provare a indovinare il PIN.</b> Tre errori e la SIM si blocca.</li>
+    <li>Gli operatori di solito <b>non comunicano il PIN</b>, ma molti mostrano il <b>PUK</b> nell'area clienti (app o sito), nella sezione dedicata alla linea o alla SIM.</li>
+    <li>Se il PUK non c'è, chiedi al servizio clienti o in un negozio dell'operatore, con un documento d'identità. Alcuni operatori, per motivi di sicurezza, non comunicano nemmeno il PUK: in quel caso ti sostituiscono la SIM <b>mantenendo lo stesso numero</b>, a volte a pagamento.</li>
+  </ol>
+  <h3 style="margin-top:16px">Hai il PUK ma non il PIN: come impostarne uno nuovo</h3>
+  <ol>
+    <li>Prima di tutto <b>scrivi il PUK</b> e tienilo davanti a te. Senza PUK non fare questa procedura.</li>
+    <li>Vai nel menu del blocco SIM del tuo telefono (<a href="#parte-c">Parte C</a>) e prova ad attivarlo: quando chiede il PIN, inseriscine uno qualsiasi.</li>
+    <li>Dopo <b>3 PIN sbagliati</b> il telefono chiede il PUK. È normale: non perdi nulla.</li>
+    <li>Inserisci il <b>PUK</b>, poi il <b>nuovo PIN</b> scelto da te (due volte). La SIM si sblocca con il nuovo codice.</li>
+    <li>Torna nel menu e controlla che il blocco SIM risulti attivo.</li>
+  </ol>
+  <div class="note"><b>Fai attenzione quando digiti il PUK:</b> hai 10 tentativi, poi la SIM va sostituita. Copialo dall'area clienti cifra per cifra.</div>
+</div>
+
+<div class="note"><b>Se sbagli anche il PUK 10 volte</b>, la SIM viene disattivata in modo permanente. Non perdi il numero: devi solo chiedere una nuova SIM all'operatore, presentando un documento.</div>
+
+<!-- PARTE C -->
+<div class="part" id="parte-c">PARTE C</div>
+<h2>Le istruzioni, telefono per telefono</h2>
+<p class="sub">I nomi delle voci possono cambiare leggermente tra modelli e versioni del sistema. In caso di dubbio, apri Impostazioni e scrivi <b>"SIM"</b> nella barra di ricerca in alto.</p>
+
+<!-- 01 -->
+<article class="card" id="s01">
+  <div class="card-h"><span class="n">#01</span><span class="badge blue">ANDROID</span><h3>Google Pixel</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm green">ATTIVA IL BLOCCO PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Apri il menu del blocco SIM</div>
+    <ol>
+      <li>Apri <span class="path">Impostazioni → Sicurezza e privacy → Più sicurezza e privacy → Protezione SIM</span></li>
+      <li>Se non trovi una delle voci, scrivi "SIM" nella barra di ricerca in cima alle Impostazioni.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Attiva il PIN</div>
+    <ol>
+      <li>Attiva l'interruttore <b>Richiedi PIN della SIM</b>.</li>
+      <li>Inserisci il PIN attuale e conferma con OK.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Cambia il PIN predefinito</div>
+    <ol>
+      <li>Dallo stesso menu tocca <b>Cambia PIN della SIM</b> e segui la scheda <a href="#s05">#05</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 02 -->
+<article class="card" id="s02">
+  <div class="card-h"><span class="n">#02</span><span class="badge blue">ANDROID</span><h3>Samsung Galaxy</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm green">ATTIVA IL BLOCCO PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Apri il menu del blocco SIM</div>
+    <ol>
+      <li>Apri <span class="path">Impostazioni → Sicurezza e privacy → Altre impostazioni di sicurezza → Configura blocco SIM</span></li>
+      <li>Sui modelli meno recenti: <span class="path">Impostazioni → Dati biometrici e sicurezza → Altre impostazioni di sicurezza → Configura PIN blocco SIM</span></li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Attiva il PIN</div>
+    <ol>
+      <li>Attiva <b>Blocca scheda SIM</b>.</li>
+      <li>Inserisci il PIN attuale e conferma con OK.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Cambia il PIN predefinito</div>
+    <ol>
+      <li>Dallo stesso menu tocca <b>Cambia PIN scheda SIM</b> e segui la scheda <a href="#s05">#05</a>.</li>
+    </ol></div>
+  <div class="note"><b>L'interruttore è grigio e non si sposta?</b> Succede con alcune SIM appena attivate o durante una portabilità del numero non ancora completata. Attendi che il passaggio sia concluso; se il problema resta, contatta l'operatore.</div>
+</article>
+
+<!-- 03 -->
+<article class="card" id="s03">
+  <div class="card-h"><span class="n">#03</span><span class="badge blue">ANDROID</span><h3>Altri Android (Xiaomi, Motorola, Oppo, OnePlus…)</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm green">ATTIVA IL BLOCCO PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Trova il menu</div>
+    <ol>
+      <li>Apri Impostazioni e scrivi <b>"blocco SIM"</b> o <b>"PIN SIM"</b> nella barra di ricerca.</li>
+      <li>Se la ricerca non trova nulla, guarda nella sezione <span class="path">Sicurezza</span> (o "Password e sicurezza") oppure in <span class="path">SIM e reti mobili</span>.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Attiva il PIN e cambialo</div>
+    <ol>
+      <li>Attiva il blocco della SIM e inserisci il PIN attuale.</li>
+      <li>Poi cambia il PIN predefinito come spiegato nella scheda <a href="#s05">#05</a>.</li>
+    </ol></div>
+</article>
+
+<!-- 04 -->
+<article class="card" id="s04">
+  <div class="card-h"><span class="n">#04</span><span class="badge red">APPLE</span><h3>iPhone</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm green">ATTIVA IL BLOCCO PASSO PER PASSO</div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Apri il menu del PIN SIM</div>
+    <ol>
+      <li>Apri <span class="path">Impostazioni → Cellulare → PIN SIM</span></li>
+      <li>Se hai doppia SIM o doppia eSIM: <span class="path">Impostazioni → Cellulare</span>, tocca il <b>numero</b> da proteggere e poi <b>PIN SIM</b>.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Attiva il PIN</div>
+    <ol>
+      <li>Attiva l'interruttore <b>PIN SIM</b>.</li>
+      <li>Inserisci il PIN attuale e tocca <b>Fine</b>.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Cambia il PIN predefinito</div>
+    <ol>
+      <li>Nello stesso menu tocca <b>Cambia PIN</b> e segui la scheda <a href="#s05">#05</a>.</li>
+    </ol></div>
+  <div class="note"><b>Anche Apple raccomanda di non tentare di indovinare il PIN.</b> Se non lo conosci, contatta l'operatore che ti ha fornito la SIM o l'eSIM. Se compare l'avviso "PUK esaurito", serve una nuova SIM.</div>
+</article>
+
+<!-- 05 -->
+<article class="card" id="s05">
+  <div class="card-h"><span class="n">#05</span><span class="badge green">TUTTI</span><h3>Cambiare il PIN predefinito</h3><span class="rn">ransom<span>News</span></span></div>
+  <p>Il PIN del cartoncino è scritto su un pezzo di plastica che magari è ancora in un cassetto, o è finito chissà dove. Meglio sostituirlo con uno scelto da te.</p>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Apri la voce di modifica</div>
+    <ul>
+      <li><b>Pixel:</b> <span class="path">Protezione SIM → Cambia PIN della SIM</span></li>
+      <li><b>Samsung:</b> <span class="path">Configura blocco SIM → Cambia PIN scheda SIM</span></li>
+      <li><b>iPhone:</b> <span class="path">Cellulare → PIN SIM → Cambia PIN</span></li>
+    </ul></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Inserisci i codici</div>
+    <ol>
+      <li>Inserisci il PIN attuale.</li>
+      <li>Inserisci il nuovo PIN e confermalo una seconda volta.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">DA EVITARE</span>PIN facili da indovinare</div>
+    <ul>
+      <li><span class="code">0000</span> <span class="code">1111</span> <span class="code">1234</span> <span class="code">4321</span> e simili.</li>
+      <li>Anno o data di nascita, ultime cifre del numero di telefono.</li>
+      <li>Lo stesso codice che usi per sbloccare il telefono o per il bancomat.</li>
+    </ul></div>
+  <div class="step"><div class="step-t"><span class="badge green">DA FARE</span>Conserva i codici</div>
+    <ul>
+      <li>Salva il nuovo PIN e il PUK in un posto sicuro, per esempio un password manager.</li>
+      <li><b>Non</b> tenerli nella custodia del telefono: se ti rubano il telefono, rubano anche i codici.</li>
+    </ul></div>
+</article>
+
+<!-- 06 -->
+<article class="card" id="s06">
+  <div class="card-h"><span class="n">#06</span><span class="badge green">TUTTI</span><h3>Doppia SIM ed eSIM</h3><span class="rn">ransom<span>News</span></span></div>
+  <ul>
+    <li>Ogni SIM ha il <b>suo</b> PIN e il <b>suo</b> PUK. Con due linee, il blocco va attivato <b>per ciascuna</b>.</li>
+    <li>Il PIN vale anche per l'<b>eSIM</b>: anche se non si può estrarre fisicamente, il blocco impedisce di usare la linea dopo un riavvio senza il codice.</li>
+    <li>Sui telefoni con due linee, il menu del blocco SIM ti chiede prima di scegliere quale linea configurare.</li>
+  </ul>
+</article>
+
+<!-- PARTE D -->
+<div class="part" id="parte-d">PARTE D</div>
+<h2>Dopo l'attivazione: cosa aspettarsi</h2>
+<p class="sub">Cosa cambia nell'uso di tutti i giorni.</p>
+
+<div class="grid2">
+  <div class="box"><h4>Quando viene chiesto il PIN</h4><ul>
+    <li>A ogni <b>accensione</b> o <b>riavvio</b> del telefono.</li>
+    <li>Ogni volta che la SIM viene tolta e reinserita, o messa in un altro telefono.</li></ul></div>
+  <div class="box"><h4>Quando NON viene chiesto</h4><ul>
+    <li>Quando sblocchi lo schermo.</li>
+    <li>Quando attivi e disattivi la modalità aereo.</li>
+    <li>Durante il normale utilizzo, con il telefono acceso.</li></ul></div>
+  <div class="box"><h4>Finché non inserisci il PIN</h4><ul>
+    <li>Niente rete mobile: niente chiamate, SMS e dati.</li>
+    <li>Le <b>chiamate di emergenza</b> funzionano comunque.</li>
+    <li>Il Wi-Fi funziona, se disponibile.</li></ul></div>
+  <div class="box"><h4>Riavvii automatici</h4><ul>
+    <li>Per sicurezza, iPhone e molti Android possono <b>riavviarsi da soli</b> se restano bloccati e inutilizzati per alcuni giorni (su Android dipende da versione e impostazioni).</li>
+    <li>Dopo quel riavvio il telefono resta senza rete finché non inserisci il PIN.</li></ul></div>
+</div>
+
+<div class="note"><b>Telefono di scorta o lasciato in un cassetto?</b> Se non lo usi per qualche giorno e poi non ricevi chiamate, controlla se si è riavviato e sta aspettando il PIN della SIM.</div>
+
+<!-- PARTE E -->
+<div class="part" id="parte-e">PARTE E</div>
+<h2>Codici via SMS: il punto debole</h2>
+<p class="sub">Il PIN protegge la SIM. Ma finché i codici di accesso arrivano via SMS, il tuo numero di telefono resta la chiave di tutti i tuoi account.</p>
+
+<div class="card">
+  <div class="card-h"><span class="badge red">PROBLEMA</span><h3>Perché gli SMS non sono un buon secondo fattore</h3><span class="rn">ransom<span>News</span></span></div>
+  <p>La verifica in due passaggi via SMS è meglio di niente, ma è la forma più debole. Il codice non arriva al <b>tuo telefono</b>: arriva al <b>tuo numero</b>. E il numero può finire nelle mani sbagliate in diversi modi.</p>
+  <div class="signals">
+    <div class="signal"><b>SIM RUBATA</b><span>Se la SIM non ha il PIN, chi la inserisce in un altro telefono riceve i tuoi codici.</span></div>
+    <div class="signal"><b>SIM SWAP</b><span>Con un duplicato della SIM ottenuto dall'operatore, i codici arrivano al truffatore (<a href="#parte-f">Parte F</a>).</span></div>
+    <div class="signal"><b>INTERCETTAZIONE</b><span>Gli SMS non sono cifrati end-to-end: esistono tecniche, usate da gruppi criminali organizzati, per deviarli o intercettarli sulla rete telefonica.</span></div>
+    <div class="signal"><b>SCHERMO BLOCCATO</b><span>Se l'anteprima degli SMS è visibile, chi ha in mano il telefono legge il codice senza sbloccarlo.</span></div>
+    <div class="signal"><b>FINTI OPERATORI</b><span>Truffatori che si fingono banca, corriere o assistenza ti chiedono di "leggere il codice appena arrivato".</span></div>
+    <div class="signal"><b>RECUPERO PASSWORD</b><span>Molti servizi permettono di reimpostare la password con un solo SMS: chi ha il numero entra senza conoscere la password.</span></div>
+  </div>
+  <div class="note"><b>La regola d'oro:</b> nessuna banca, operatore, corriere o assistenza ti chiederà mai di comunicare un codice di verifica. Chi lo chiede, sta cercando di entrare nel tuo account.</div>
+</div>
+
+<div class="card">
+  <div class="card-h"><span class="badge green">SOLUZIONE</span><h3>Cosa usare al posto degli SMS</h3><span class="rn">ransom<span>News</span></span></div>
+
+  <div class="step"><div class="step-t"><span class="badge green">1</span>App di autenticazione</div>
+    <p>Un'app di autenticazione genera sul telefono un codice di 6 cifre che cambia ogni 30 secondi. Il codice <b>non viaggia sulla rete telefonica</b>: non dipende dalla SIM, non si intercetta e il SIM swap non lo tocca. Funziona anche senza rete e in modalità aereo.</p>
+    <ul>
+      <li><b>Proton Authenticator</b> — gratuito, open source, senza pubblicità né tracciamento. Disponibile per iPhone, Android, Mac, Windows e Linux. Funziona anche senza account; con un account Proton offre backup e sincronizzazione cifrati end-to-end tra i dispositivi. Importa i codici da Google Authenticator, Aegis, 2FAS, Ente Auth e altre app.</li>
+      <li><b>Google Authenticator</b> — gratuito, per iPhone e Android, con backup opzionale sull'account Google.</li>
+      <li><b>Microsoft Authenticator</b> — gratuito, per iPhone e Android; comodo soprattutto se usi account Microsoft.</li>
+    </ul></div>
+
+  <div class="step"><div class="step-t"><span class="badge green">2</span>Passkey</div>
+    <p>Dove il servizio le offre (Google, Apple, Microsoft, Amazon, PayPal e altri), le passkey sostituiscono password e codici: l'accesso si conferma con impronta, volto o PIN del telefono. Non c'è nessun codice da rubare o da farsi dettare, e non funzionano su siti falsi.</p></div>
+
+  <div class="step"><div class="step-t"><span class="badge green">3</span>App ufficiali dei servizi</div>
+    <ul>
+      <li><b>Banca:</b> se la tua banca permette di autorizzare accessi e pagamenti con una notifica nella sua app, preferiscila all'SMS.</li>
+      <li><b>SPID:</b> usa l'app del tuo gestore SPID per confermare gli accessi, invece del codice via SMS.</li>
+      <li><b>WhatsApp:</b> attiva la <span class="path">Impostazioni → Account → Verifica in due passaggi</span>. Imposti un PIN di 6 cifre che WhatsApp chiede quando qualcuno prova a registrare il tuo numero su un altro telefono: anche con il codice SMS in mano, senza quel PIN non entra.</li>
+    </ul></div>
+</div>
+
+<div class="card">
+  <div class="card-h"><span class="badge blue">COME FARE</span><h3>Passare dagli SMS all'app di autenticazione</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 1</span>Installa l'app</div>
+    <ol>
+      <li>Scegli un'app di autenticazione, per esempio <b>Proton Authenticator</b>, <b>Google Authenticator</b> o <b>Microsoft Authenticator</b> (le caratteristiche sono descritte qui sopra).</li>
+      <li>Scaricala solo dallo store ufficiale (App Store o Google Play) e controlla che lo sviluppatore sia quello giusto: Proton AG, Google LLC o Microsoft Corporation. Negli store circolano app false con nomi simili.</li>
+      <li>Attiva il blocco dell'app con impronta o volto, se disponibile, e il backup dei codici: in Proton Authenticator con l'account Proton, in Google Authenticator con l'account Google, in Microsoft Authenticator con l'account Microsoft.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 2</span>Collega il primo account</div>
+    <ol>
+      <li>Nel servizio da proteggere vai nelle impostazioni di sicurezza, alla voce <b>Verifica in due passaggi</b> (o "Autenticazione a due fattori", "2FA").</li>
+      <li>Scegli <b>App di autenticazione</b>: il sito mostra un QR code.</li>
+      <li>Nell'app tocca "+" e inquadra il QR code.</li>
+      <li>Inserisci nel sito il codice di 6 cifre mostrato dall'app per confermare.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 3</span>Salva i codici di backup</div>
+    <ol>
+      <li>Quasi tutti i servizi, a questo punto, mostrano dei <b>codici di recupero</b> monouso.</li>
+      <li>Salvali in un password manager o stampali e conservali in un posto sicuro. Ti servono se perdi il telefono.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge blue">PASSO 4</span>Togli gli SMS come alternativa</div>
+    <ol>
+      <li>Molti servizi lasciano l'SMS attivo come metodo di riserva. Se resta, chi ha il tuo numero può ancora usarlo per entrare.</li>
+      <li>Dove il servizio lo permette, <b>rimuovi il numero di telefono</b> come metodo di verifica e di recupero.</li>
+    </ol></div>
+  <div class="step"><div class="step-t"><span class="badge red">PRIORITÀ</span>Da quali account iniziare</div>
+    <ol>
+      <li><b>Email principale</b> (Gmail, Outlook, Proton Mail, iCloud…): da lì si reimpostano le password di tutto il resto.</li>
+      <li><b>Account Apple o Google</b> del telefono.</li>
+      <li><b>Social e messaggistica</b>: WhatsApp, Instagram, Facebook, Telegram.</li>
+      <li><b>Acquisti e pagamenti</b>: Amazon, PayPal e simili.</li>
+    </ol></div>
+  <div class="note"><b>Cambi telefono?</b> Prima di cancellare o restituire quello vecchio, trasferisci i codici nell'app del nuovo telefono (con la sincronizzazione o l'esportazione) e controlla che funzionino. Senza codici e senza codici di backup rischi di restare chiuso fuori dai tuoi account.</div>
+</div>
+
+<div class="box">
+  <h3>Un'ultima accortezza: nascondi gli SMS sullo schermo bloccato</h3>
+  <p>Finché qualche servizio ti manda ancora codici via SMS, evita che si leggano senza sbloccare il telefono.</p>
+  <ul>
+    <li><b>iPhone:</b> <span class="path">Impostazioni → Notifiche → Mostra anteprime → Se sbloccato</span></li>
+    <li><b>Android:</b> nelle impostazioni delle <b>Notifiche</b> cerca la voce sulla <b>schermata di blocco</b> e scegli di nascondere i contenuti sensibili (il nome esatto cambia tra Pixel, Samsung e altri).</li>
+  </ul>
+</div>
+
+<div class="box">
+  <h3>In sintesi</h3>
+  <ol>
+    <li>Recupera PIN e PUK dal cartoncino della SIM, oppure il PUK dall'operatore.</li>
+    <li>Attiva il blocco SIM dalle impostazioni del telefono.</li>
+    <li>Cambia il PIN predefinito con uno non banale.</li>
+    <li>Conserva PIN e PUK in un posto sicuro, lontano dal telefono.</li>
+    <li>Smetti di ricevere i codici via SMS: passa a un'app di autenticazione (Proton Authenticator, Google Authenticator, Microsoft Authenticator) o alle passkey, partendo dall'email principale.</li>
+    <li>Attiva la verifica in due passaggi di WhatsApp.</li>
+  </ol>
+</div>
+
+<!-- PARTE F -->
+<div class="part" id="parte-f" style="margin-top:0">PARTE F</div>
+<h2>Cosa il PIN non protegge: il SIM swap</h2>
+<p class="sub">Il PIN protegge la scheda fisica, non il tuo contratto con l'operatore.</p>
+
+<div class="card">
+  <div class="card-h"><span class="badge red">ATTENZIONE</span><h3>SIM swap: il numero trasferito su un'altra SIM</h3><span class="rn">ransom<span>News</span></span></div>
+  <div class="h-sm">COME SUCCEDE</div>
+  <p>Un criminale convince o inganna l'operatore (con documenti falsi o complici) e si fa emettere un <b>duplicato della tua SIM</b>. Il tuo telefono resta all'improvviso senza linea, mentre lui riceve chiamate e SMS al posto tuo. In questo attacco la tua scheda fisica non viene nemmeno toccata, quindi il PIN non può fermarlo.</p>
+  <div class="h-sm green">COME RIDURRE IL RISCHIO</div>
+  <ol>
+    <li>Smetti di ricevere i codici di accesso via SMS: usa un'<b>app di autenticazione</b> o le <b>passkey</b>. È la misura più efficace ed è spiegata nella <a href="#parte-e"><b>Parte E</b></a>.</li>
+    <li>Chiedi al tuo operatore se puoi impostare un codice o una password di sicurezza sull'account.</li>
+    <li>Non pubblicare online dati che servono a impersonarti: data di nascita, codice fiscale, foto dei documenti.</li>
+  </ol>
+  <div class="h-sm green">SE IL TELEFONO PERDE LA LINEA SENZA MOTIVO</div>
+  <ol>
+    <li>Da un altro telefono chiama <b>subito</b> l'operatore e chiedi se è stato emesso un duplicato della tua SIM. Se sì, fallo bloccare.</li>
+    <li>Chiama la banca: segnala il rischio, fai bloccare carte e home banking e controlla i movimenti.</li>
+    <li>Da un dispositivo sicuro cambia la password dell'email principale, poi quelle degli altri servizi.</li>
+    <li>Denuncia alla Polizia Postale (<a href="https://www.commissariatodips.it" target="_blank" rel="noopener">www.commissariatodips.it</a>) o in questura.</li>
+  </ol>
+</div>
+
+
+<footer>
+  <div class="l">© ransomNews<span>|</span><a href="https://ransomnews.online/ethics.html">ethics</a><span>|</span><a href="https://paranoi.ca/">ThreeSeep Collective</a></div>
+  <div>Aggiornato al 31/10/2026</div>
+</footer>
+</main>
+
+<a class="top" href="#top" aria-label="Torna su">↑</a>
+</body>
+</html>
